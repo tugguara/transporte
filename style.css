@@ -51,6 +51,42 @@ th {
     border-top-right-radius: 8px;
 }
 
+/* Tabela de sábado */
+.table-saturday {
+    width: 50%; /* Ajuste a largura para manter o mesmo estilo */
+    margin: 0 auto; /* Centraliza a tabela */
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para cabeçalhos da tabela de sábado */
+.table-saturday th {
+    background-color: #071d2b; /* Verde */
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+/* Estilos para células da tabela de sábado */
+.table-saturday td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Cores alternadas para as linhas */
+.table-saturday tr:nth-child(even) {
+    background-color: #eafaf1; /* Verde claro */
+}
+
+.table-saturday tr:nth-child(odd) {
+    background-color: #ffffff; /* Branco */
+}
+
 /* Estilos para células da tabela */
 td {
     padding: 12px 15px;
