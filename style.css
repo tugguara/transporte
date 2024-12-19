@@ -251,38 +251,3 @@ footer p {
     height: auto;
     margin-top: 10px;
 }
-
-
-.message {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 19px;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 1s ease, visibility 1s ease;
-    z-index: 1000;
-}
-
-.message.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* Ícone posicionado atrás do texto */
-.icon {
-    position: absolute;
-    left: 10px; /* Alinha o ícone à esquerda */
-    top: 50%; /* Posiciona o ícone verticalmente no centro */
-    transform: translateY(-50%); /* Ajusta o alinhamento vertical */
-    width: 50px;
-    height: 50px;
-    background-image: url('https://i.imgur.com/4XfAgEQ.png'); /* Substitua pelo link do seu ícone */
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1; /* Coloca o ícone atrás do texto */
-}
