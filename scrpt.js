@@ -51,3 +51,15 @@ function toggleDetails(row) {
         arrow.classList.add('rotate'); // Gira a seta para cima
     }
 }
+
+window.onload = function() {
+    const message = document.getElementById('message');
+    
+    // Mostra a mensagem
+    message.classList.add('show');
+    
+    // Depois de 5 segundos, esconde a mensagem
+    setTimeout(function() {
+        message.classList.remove('show');
+    }, 5000); // 5000ms = 5 segundos
+};
