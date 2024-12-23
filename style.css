@@ -293,12 +293,22 @@ footer p {
     display: none;
 }
 
-/* Estilo das bolinhas */
 .itinerary-table .dot {
     width: 16px;
     height: 16px;
     border-radius: 50%;
     z-index: 1; /* Bolinha por cima da linha */
+    max-width: 16px; /* Garante que a bolinha não se expanda no mobile */
+    max-height: 16px; /* Garante que a bolinha não se expanda no mobile */
+    flex-shrink: 0; /* Impede que a bolinha encolha no mobile */
+}
+
+/* Ajuste para a tabela no mobile */
+@media (max-width: 768px) {
+    .itinerary-table {
+        width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+        table-layout: fixed; /* Impede que as colunas aumentem ou encolham dependendo do conteúdo */
+    }
 }
 
 /* Estilo do texto */
