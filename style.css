@@ -94,6 +94,41 @@ td {
     border-bottom: 1px solid #ddd;
 }
 
+/* Ajuste para a tabela no mobile */
+@media (max-width: 768px) {
+    table, .table-saturday {
+        width: 100%; /* Tabelas ocupam 100% da largura no mobile */
+        table-layout: fixed; /* Impede que as colunas aumentem ou encolham dependendo do conteúdo */
+    }
+
+    /* Ajuste do tamanho das células no mobile */
+    td {
+        padding: 8px 10px; /* Menor padding no mobile */
+    }
+
+    /* Ajuste do texto no mobile */
+    .itinerary-table .text {
+        font-size: 14px; /* Ajuste de font-size no mobile */
+    }
+
+     /* Ajuste para os cabeçalhos da tabela */
+     th {
+        padding: 10px 12px;
+    }
+}
+
+/* Ajuste de estilo para a tabela de domingo */
+@media (max-width: 768px) {
+    .table-saturday th {
+        padding: 10px 12px;
+        font-size: 14px; /* Font menor no mobile */
+    }
+    .table-saturday td {
+        padding: 8px 10px;
+        font-size: 14px; /* Font menor no mobile */
+    }
+}
+
 /* Cores alternadas para as linhas */
 tr:nth-child(even) {
     background-color: #f2f2f2;
