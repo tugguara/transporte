@@ -282,6 +282,11 @@ footer p {
     left: 6.5px; /* Centraliza com a bolinha */
     z-index: 0; /* Fica atrás da bolinha */
 }
+@media (max-width: 768px) {
+    .itinerary-table .dot-container::before {
+        display: none;
+    }
+}
 
 /* Esconde a linha antes da primeira bolinha */
 .itinerary-table tr:first-child .dot-container::before {
