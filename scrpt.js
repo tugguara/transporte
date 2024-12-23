@@ -1,36 +1,8 @@
-function toggleDetails(element) {
-    // Seleciona o próximo elemento (o texto escondido)
-    const details = element.nextElementSibling;
-
-    // Alterna entre mostrar e esconder
-    if (details.style.display === "block") {
-        details.style.display = "none";
-        element.innerHTML = "&#9660;"; // Seta para baixo
-    } else {
-        details.style.display = "block";
-        element.innerHTML = "&#9650;"; // Seta para cima
-    }
-}
-
-function toggleDetails(row) {
-    // Seleciona o elemento que contém os detalhes
-    const details = row.querySelector('.details');
-    const arrow = row.querySelector('.arrow');
-
-    // Alterna entre mostrar e esconder os detalhes
-    if (details.style.display === "block") {
-        details.style.display = "none";
-        arrow.innerHTML = "&#9660;"; // Seta para baixo
-    } else {
-        details.style.display = "block";
-        arrow.innerHTML = "&#9650;"; // Seta para cima
-    }
-}
-
 function toggleDetails(row) {
     const details = row.querySelector('.details');
     const arrow = row.querySelector('.arrow');
 
+    // Verifica se o conteúdo está visível
     if (details.classList.contains('open')) {
         // Fechar: transição suave para 0
         details.style.height = details.scrollHeight + "px"; // Define a altura atual
@@ -63,3 +35,4 @@ window.onload = function() {
         message.classList.remove('show');
     }, 5000); // 5000ms = 5 segundos
 };
+
