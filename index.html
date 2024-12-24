@@ -253,6 +253,19 @@
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         }
         
+        @media (max-width: 768px) {
+    table {
+        width: 100%; /* Garante que a tabela ocupe toda a largura no celular */
+        table-layout: fixed; /* Mantém o layout proporcional */
+    }
+
+    th, td {
+        padding: 10px; /* Reduz o espaço interno para caber melhor */
+        font-size: 14px; /* Fonte menor para dispositivos móveis */
+        word-wrap: break-word; /* Quebra o texto para evitar overflow */
+    }
+}
+        
         th {
             background-color: #2980b9;
             color: white;
@@ -282,15 +295,6 @@
             margin-right: 10px;
             transition: background-color 0.3s;
         }
-
-        /* Ajuste para a tabela no mobile */
-@media (max-width: 768px) {
-    .itinerary-table {
-        width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
-        table-layout: fixed; /* Impede que as colunas aumentem ou encolham dependendo do conteúdo */
-    }
-}
-        
         .dot.current {
             background-color: #ffd700; /* Amarelo para o ponto atual */
         }
@@ -309,7 +313,6 @@
         .details.open {
             display: block;
         }
-        
         .horario {
             display: inline-block;
             margin: 0 2px;
@@ -357,7 +360,7 @@
                         <div class="line"></div>
                         <span style="margin-left: 5px;">
                             Segunda a Sexta Feira: 
-                            <span class="horario">00:50</span>
+                            <span class="horario">05:00</span>
                             <span class="horario">06:00</span>
                             <span class="horario">07:00</span>
                             <span class="horario">08:00</span>
@@ -375,12 +378,10 @@
                             <span class="horario">21:20</span>
                             <span class="horario">22:20</span>
                             <span class="horario">23:30</span>
-                            <span class="horario">23:49</span>
                         </span>
                         <br><br>
                         <span style="margin-left: 5px;">
                             Sábados: 
-                            <span class="horario">00:30</span>
                             <span class="horario">05:00</span>
                             <span class="horario">06:00</span>
                             <span class="horario">07:00</span>
@@ -399,7 +400,6 @@
                         <br><br>
                         <span style="margin-left: 5px;">
                             Domingos e Feriados:
-                            <span class="horario">00:05</span>
                             <span class="horario">05:00</span>
                             <span class="horario">07:00</span>
                             <span class="horario">08:00</span>
