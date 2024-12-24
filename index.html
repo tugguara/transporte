@@ -282,6 +282,14 @@
             margin-right: 10px;
             transition: background-color 0.3s;
         }
+
+        /* Ajuste para a tabela no mobile */
+@media (max-width: 768px) {
+    .itinerary-table {
+        width: 100%; /* Garante que a tabela ocupe 100% da largura disponível */
+        table-layout: fixed; /* Impede que as colunas aumentem ou encolham dependendo do conteúdo */
+    }
+}
         
         .dot.current {
             background-color: #ffd700; /* Amarelo para o ponto atual */
