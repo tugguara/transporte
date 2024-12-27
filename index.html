@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horários de Ônibus</title>
+    <title>Tela Inicial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <head>
@@ -43,537 +42,276 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <h1>L25 JARDIM DO VALE/PONTE ZERBINI</h1>
+            <h1></h1>
         </div>
-        <h2 class="subtitle">volta via ponte rosinha filippo</h2>
     </header>
 
     <!-- Menu lateral -->
     <nav id="side-menu" class="hidden">
         <button id="close-menu" aria-label="Fechar menu">X</button>
-        <h2>Ônibus Urbano</h2>
-        <ul>
-            <li><a href="#" class="active">L25 Jardim do Vale</a></li>
-            <li><a href="https://tugguara.github.io/transporte/l26%20adhemar/">L26 Adhemar de Barros</a></li>
-        </ul>
-        <h2>Ônibus EMTU</h2>
-        <ul>
-            <li><a href="aparecida.html">Aparecida</a></li>
-        </ul>
+        <div id="menu-content"></div>
     </nav>
-
+    <script type="module" src="../menu.js"></script>
+    <script type="module" src="../link.js"></script>
     <script src="scrpt.js"></script>
 </body>
 </html>
 
 
 
-    <main>
-        <section>
-            <h2>Segunda-Feira à Sexta-Feira</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Horário de Partida - Rodoviária</th>
-                    </tr>
-                    <tr onclick="toggleDetails(this)">
-                        <td>
-                            <div class="clickable2">
-                            05:00
-                                <span class="arrow">&#9660;</span>
-                            </div>
-                            <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos
-                            </div>
-                        </td>
-                    </tr>
-                    <tr onclick="toggleDetails(this)">
-                        <td>
-                            <div class="clickable2">
-                            06:00
-                                <span class="arrow">&#9660;</span>
-                            </div>
-                            <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                        </td>
-                    </tr>
-                    <tr onclick="toggleDetails(this)">
-                        <td>
-                            <div class="clickable2">
-                            07:00
-                                <span class="arrow">&#9660;</span>
-                            </div>
-                            <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                        </td>
-                        </tr>
-                        <tr onclick="toggleDetails(this)">
-                            <td>
-                                <div class="clickable2">
-                                08:00
-                                    <span class="arrow">&#9660;</span>
-                                </div>
-                                <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                            </td>
-                        <tr>
-                            <td>09:00</td>
-                        </tr>
-                        <td>10:00</td>
-                        <tr>
-                            <td>11:00</td>
-                        </tr>
-                        <td>12:00</td>
-                            <tr onclick="toggleDetails(this)">
-                                <td>
-                                    <div class="clickable2">
-                                    13:00 ida via itaguará
-                                        <span class="arrow">&#9660;</span>
-                                    </div>
-                                    <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                                </td>
-                        </tr>
-                    <tr class="highlight">
-                        <td>14:00 - Horário operado pelo L26 ADHEMAR DE BARROS</td>
-                        <tr>
-                            <td>15:00</td>
-                        </tr>
-                        <td>16:00</td>
-                            <tr onclick="toggleDetails(this)">
-                                <td>
-                                    <div class="clickable2">
-                                    17:00
-                                        <span class="arrow">&#9660;</span>
-                                    </div>
-                                    <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                                </td>
-                        <tr onclick="toggleDetails(this)">
-                            <td>
-                                <div class="clickable2">
-                                18:00
-                                    <span class="arrow">&#9660;</span>
-                                </div>
-                                <div class="details">Horário com ônibus complementar, válido apenas em dias úteis exceto em feriados e pontos facultativos</div>
-                            </td>
-                        <tr>
-                            <td>19:00 ida via itaguará</td>
-                        </tr>
-                    </tr>
-                        <td>20:20</td>
-                    </tr>
-                    <td>21:20</td>
-                    </tr>
-                        <td>22:20</td>
-                        </tr>
-                        <tr onclick="toggleDetails(this)">
-                            <td>
-                                <div class="clickable">
-                                <span class="highlight"> 23:30 - VIA COSTA BRAGA</span>
-                                    <span class="arrow">&#9660;</span>
-                                </div>
-                                <div class="details">itinerário via costa braga: Ponte Rosinha Filippo, Praça 13 de Maio, Avenida João Pessoa, Rua Tenente Adrelino Cornetti, Rua Pedro Cappio, Rua Alberto Barbeta, Avenida João Pessoa, Avenida Presidente Vargas</div>
-                            </td>
-                        </tr>
-                        <script src="scrpt.js"></script>
-                    </tbody>
-                </table>
-            </section>
-        </main>
-        <main>
-            <section>
-                <h2>Sábados</h2>
-                <table class="table-saturday">
-                <thead>
-                    <tr>
-                    <th>Horário de Partida - Rodoviária</th>
-                    </tr>
-                <tr>
-                <td>05:00</td>
-                </tr>
-                <tr>
-                    <td>06:00</td>
-                    </tr>
-                    <tr>
-                        <td>07:00</td>
-                        </tr>
-                        <tr>
-                            <td>08:00</td>
-                            </tr>
-                            <tr>
-                                <td>10:00</td>
-                                </tr>
-                                <tr>
-                                    <td>11:00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>12:00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>13:00</td>
-                                            </tr>
-                                        </tr>
-                                        <tr onclick="toggleDetails(this)">
-                                            <td>
-                                                <div class="clickable">
-                                                <span class="highlight"> 14:00 -  Horário operado pelo L26 ADHEMAR DE BARROS</span>
-                                                    <span class="arrow">&#9660;</span>
-                                                </div>
-                                                <div class="details">itinerário inativo</div>
-                                            </td>
-                                        </tr>
-                                            <tr>
-                                                <td>16:00</td>
-                                                </tr>
-                                                <tr>
-                                                        <td>18:00</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>19:30</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>20:30</td>
-                                                                </tr>
-                                                                <td>22:30</td>
-                                                                </tr>
-                                                                <td>23:30</td>
-                                                                </tr>
-                                                                <thead>
-                                                                    <table>
-                                                                <main>
-                                                                    <section>
-                                                                        <h2>Domingos e Feriados</h2>
-                                                                        <table class="table-sunday">
-                                                                        <thead>
-                                                                            <tr>
-                                                                            <th>Horário de Partida - Rodoviária</th>
-                                                                            </tr>
-                                                                        <tr>
-                                                                        <td>05:00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>07:00</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>08:00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>09:00</td>
-                                                                                    </tr>
-                                                                                    <tr>
-                                                                                        <td>11:00</td>
-                                                                                        </tr>
-                                                                                                </tr>
-                                                                                                <tr onclick="toggleDetails(this)">
-                                                                                                    <td>
-                                                                                                        <div class="clickable">
-                                                                                                        <span class="highlight"> 13:00 -  Horário operado pelo L26 ADHEMAR DE BARROS</span>
-                                                                                                            <span class="arrow">&#9660;</span>
-                                                                                                        </div>
-                                                                                                        <div class="details">itinerário inativo</div>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                                    <tr>
-                                                                                                        <td>17:00</td>
-                                                                                                        </tr>
-                                                                                                        <tr>
-                                                                                                                <td>18:00</td>
-                                                                                                                </tr>
-                                                                                                                <tr>
-                                                                                                                    <td>19:00</td>
-                                                                                                                    </tr>
-                                                                                                                    <tr>
-                                                                                                                        <td>20:30</td>
-                                                                                                                        </tr>
-                                                                                                                        <td>22:30</td>
-                                                                                                                        </tr>
-                                                                                                                        <td>23:30</td>
-                                                                                                                        </tr>  
-                                                                                                                        </tbody>
-                                                                                                                        </table>
-                                                                                                                        </section>                                                                                        
-<!DOCTYPE html>
-<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horários de Ônibus</title>
+    <title>NuBus - Menu Inicial</title>
     <style>
-        body {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
-            background-color: #f5f6fa;
-            padding: 20px;
         }
-        
-        table {
-            width: 50%;
-            margin: 0 auto;
-            border-collapse: collapse;
+
+        body {
+            line-height: 1.6;
+        }
+
+        /* Mensagens iniciais */
+        .messages {
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        @media (max-width: 768px) {
-    table {
-        width: 100%; /* Garante que a tabela ocupe toda a largura no celular */
-        table-layout: fixed; /* Mantém o layout proporcional */
-    }
-
-    th, td {
-        padding: 10px; /* Reduz o espaço interno para caber melhor */
-        font-size: 14px; /* Fonte menor para dispositivos móveis */
-        word-wrap: break-word; /* Quebra o texto para evitar overflow */
-    }
-}
-        
-        th {
-            background-color: #2980b9;
-            color: white;
-            padding: 12px 15px;
-            text-align: left;
-            border-top-left-radius: 8px;
-            border-top-right-radius: 8px;
-        }
-        
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .dot-container {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-            cursor: pointer;
+        /* Pop-up */
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            animation: slideUp 0.5s ease-out;
         }
-        
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin-right: 10px;
-            transition: background-color 0.3s;
+
+        @keyframes slideUp {
+            from {
+                bottom: -100px;
+                opacity: 0;
+            }
+            to {
+                bottom: 20px;
+                opacity: 1;
+            }
         }
-        .dot.current {
-            background-color: #ffd700; /* Amarelo para o ponto atual */
+
+        /* Galeria */
+        .gallery-section {
+            padding: 40px 20px;
         }
-        
-        .dot.past {
-            background-color: #ccc;
-        }
-        
-        .details {
-            margin-left: 20px;
-            padding-left: 15px;
-            border-left: 2px solid #ddd;
-            display: none;
-        }
-        
-        .details.open {
-            display: block;
-        }
-        .horario {
-            display: inline-block;
-            margin: 0 2px;
-            padding: 2px 5px;
-            transition: color 0.3s;
+
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
             color: #333;
         }
-        
-        .horario.past {
-            color: #ff6b6b;
-        }
-        
-        .horario.next {
-            color: #51cf66;
-        }
-        
 
+        .gallery-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: flex;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* App Section */
+        .app-section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .app-title {
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+        }
+
+        /* Footer Links */
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 10%;
+            background-color: #f8f9fa;
+            margin-top: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer-column a:hover {
+            color: #333;
+        }
     </style>
 </head>
-<section>
-    <h2>Itinerário</h2>
-    <table class="itinerary-table">
-        <thead>
-            <tr>
-                <th>Itinerário</th>
-            </tr>
-        </thead>
-<body>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="dot-container" data-ponto="Rodoviária">
-                        <div class="dot"></div>
-                        Rodoviária (centro) P1
-                    </div>
-                    <div class="details open" style="margin-left: 20px;">
-                        <div class="line"></div>
-                        <span style="margin-left: 5px;">
-                            Segunda a Sexta Feira: 
-                            <span class="horario">05:00</span>
-                            <span class="horario">06:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">08:00</span>
-                            <span class="horario">09:00</span>
-                            <span class="horario">10:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">12:00</span>
-                            <span class="horario">13:00</span>
-                            <span class="horario">15:00</span>
-                            <span class="horario">16:00</span>
-                            <span class="horario">17:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:00</span>
-                            <span class="horario">20:20</span>
-                            <span class="horario">21:20</span>
-                            <span class="horario">22:20</span>
-                            <span class="horario">23:30</span>
-                        </span>
-                        <br><br>
-                        <span style="margin-left: 5px;">
-                            Sábados: 
-                            <span class="horario">05:00</span>
-                            <span class="horario">06:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">08:00</span>
-                            <span class="horario">10:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">12:00</span>
-                            <span class="horario">13:00</span>
-                            <span class="horario">16:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:30</span>
-                            <span class="horario">20:30</span>
-                            <span class="horario">22:30</span>
-                            <span class="horario">23:30</span>
-                        </span>
-                        <br><br>
-                        <span style="margin-left: 5px;">
-                            Domingos e Feriados:
-                            <span class="horario">05:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">08:00</span>
-                            <span class="horario">09:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">17:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:00</span>
-                            <span class="horario">20:30</span>
-                            <span class="horario">22:30</span>
-                            <span class="horario">23:30</span>
-                        </span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <footer>
-        <div class="footer-line">
-            <div class="logos">
-                <img src="https://i.imgur.com/JJW9jBQ.png" alt="tug" class="logo">
-                <img src="https://i.imgur.com/vWUH8cQ.png" alt="dat" class="loguo">
-            </div>
-            <div class="social">
-                <a href="https://instagram.com/minhatug" target="_blank">Instagram: @minhatug</a>
-            </div>
-        </div>
-        </footer>
-    <script>
-function getDiaSemana() {
-    const agora = new Date();
-    const diaDaSemana = agora.getDay();
-
-    if (diaDaSemana === 0) return "Domingos e Feriados";
-    if (diaDaSemana === 6) return "Sábados";
-    return "Segunda a Sexta Feira";
-}
-
-function obterHoraAtualSaoPaulo() {
-    const agora = new Date();
-    const fusoHorarioSP = agora.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
-    const [data, horario] = fusoHorarioSP.split(" ");
-    const [hora, minuto] = horario.split(":").map(Number);
-    return { hora, minuto };
-}
-
-function processarHorarios() {
-    const seletorDia = getDiaSemana();
-    const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
-
-    const spansDoDia = Array.from(document.querySelectorAll('.details span')).filter(span => 
-        span.textContent.trim().startsWith(seletorDia)
-    );
-
-    spansDoDia.forEach(spanDia => {
-        const horariosDoDia = spanDia.querySelectorAll('.horario');
-        let encontrouProximo = false;
-
-        horariosDoDia.forEach(horario => {
-            horario.classList.remove('past', 'next', 'future');
-
-            const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
-            const horarioTotal = hora * 60 + minuto;
-            const atualTotal = horaAtual * 60 + minutosAtuais;
-
-            if (horarioTotal < atualTotal) {
-                horario.classList.add('past'); // Horário passado
-            } else if (!encontrouProximo) {
-                horario.classList.add('next'); // Próximo horário
-                encontrouProximo = true;
-            } else {
-                horario.classList.add('future'); // Horários futuros
-            }
-        });
-    });
-
-    atualizarBolinhas();
-}
-
-function atualizarBolinhas() {
-    const dots = document.querySelectorAll('.dot-container');
-    const seletorDia = getDiaSemana();
-    const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
-
-    dots.forEach(dotContainer => {
-        const dot = dotContainer.querySelector('.dot');
-        const details = dotContainer.nextElementSibling;
-
-        const spanDoDia = Array.from(details.querySelectorAll('span')).find(span => 
-            span.textContent.trim().startsWith(seletorDia)
-        );
-
-        if (spanDoDia) {
-            dot.classList.remove('current', 'past', 'future');
-            dot.classList.add('past'); // Cinza por padrão
-
-            const horarios = Array.from(spanDoDia.querySelectorAll('.horario'));
-            let encontrouAmarelo = false;
-
-            horarios.forEach(horario => {
-                const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
-                const horarioTotal = hora * 60 + minuto;
-                const atualTotal = horaAtual * 60 + minutosAtuais;
-
-                // Bolinha amarela apenas para o horário 1 minuto no futuro
-                if (horarioTotal - atualTotal === 0 && !encontrouAmarelo) {
-                    dot.classList.remove('past');
-                    dot.classList.add('current'); // Amarelo para próximo horário
-                    encontrouAmarelo = true;
-                }
-            });
-        }
-    });
-}
-
-// Atualizar os horários e as bolinhas a cada minuto
-setInterval(processarHorarios, 60000);
-processarHorarios();
-    </script>
-</body>
 </html>
+<body>
+    <!-- Mensagens Iniciais -->
+    <div class="messages">
+        <div class="message">
+            <h2>🎉 menu em teste</h2>
+            <p>Bem-vindo ao novo site não oficial da tug! ainda está sendo atualizado.</p>
+        </div>
+        <div class="message">
+            <h2>🔄 Integração</h2>
+            <p>o site está sendo consertado, caso queira entrar nos itinerarios: <a href="https://tugguara.github.io/transporte/l26%20adhemar/">l26 adhemar</a>
+                <a href="https://tugguara.github.io/transporte/l25%20zerbini/">l25 zerbini</a> 
+            </p>
+        </div>
+    </div>
 
-                                                                                                                      
-<footer>
-    <p>Projeto Comunitário | Instagram: @minhatug</p>
-</footer>
+    <!-- Pop-up -->
+    <div class="popup" id="newSitePopup">
+        <p>relaxe, o site está sendo construido, aguarde.</p>
+    </div>
+
+    <!-- Galeria -->
+    <section class="gallery-section">
+        <h2 class="gallery-title">Nossa Frota</h2>
+        <div class="gallery-container">
+            <div class="gallery">
+                <img src="/api/placeholder/800/400" alt="Ônibus 1">
+            </div>
+            <div class="gallery-nav">→</div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section class="app-section">
+        <h2 class="app-title">Conheça o app NuBus</h2>
+        <div class="video-container">
+            <!-- Substitua o src pelo ID do vídeo do YouTube desejado -->
+            <iframe src="https://youtu.be/cY8ElBNlsNc" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Footer Links -->
+    <div class="footer-links">
+        <div class="footer-column">
+            <h3>Informações Úteis</h3>
+            <ul>
+                <li><a href="#">Horários</a></li>
+                <li><a href="#">Itinerários</a></li>
+                <li><a href="#">Tarifas</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>FAQ</h3>
+            <ul>
+                <li><a href="#">Dúvidas Frequentes</a></li>
+                <li><a href="#">Como Usar</a></li>
+                <li><a href="#">Termos de Uso</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contate-nos</h3>
+            <ul>
+                <li><a href="#">WhatsApp</a></li>
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Telefone</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Script para fechar o popup após 5 segundos
+        setTimeout(() => {
+            const popup = document.getElementById('newSitePopup');
+            popup.style.animation = 'slideDown 0.5s ease-out forwards';
+            setTimeout(() => popup.remove(), 500);
+        }, 5000);
+
+        // Simulação de galeria (você precisará implementar a lógica completa)
+        const images = [
+            '/api/placeholder/800/400',
+            '/api/placeholder/800/400',
+            '/api/placeholder/800/400'
+        ];
+        let currentImage = 0;
+
+        document.querySelector('.gallery-nav').addEventListener('click', () => {
+            currentImage = (currentImage + 1) % images.length;
+            document.querySelector('.gallery img').src = images[currentImage];
+        });
+    </script>
 </body>
 </html>
