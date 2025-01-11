@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários de Ônibus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+    <div class="header-container">
+        <div id="menu-button">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <h1>L25 JARDIM DO VALE/PONTE ZERBINI</h1>
+    </div>
+    <h2 class="subtitle">volta via ponte rosinha filippo</h2>
+</header>
+
+<!-- Menu lateral -->
+<nav id="side-menu" class="hidden">
+    <button id="close-menu" aria-label="Fechar menu">X</button>
+    <div id="menu-content"></div>
+</nav>
+
+<script type="module" src="menu.js"></script>
+<script type="module" src="link.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
+
+
+
+<script>// script.js
+
+    import { populateMenu } from './link.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        // Preencher o menu com os links
+        populateMenu();
+    });
+    </script>

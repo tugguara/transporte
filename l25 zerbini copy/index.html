@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -53,12 +52,39 @@
         <button id="close-menu" aria-label="Fechar menu">X</button>
         <div id="menu-content"></div>
     </nav>
-    <script type="module" src="../menu.js"></script>
-    <script type="module" src="../link.js"></script>
-    <script src="scrpt.js"></script>
+<!-- Remove any existing script tags and replace with these at the bottom of your body tag -->
+<script type="module" src="../../links/menu.js"></script>
+<script type="module">
+    import { initializeMenu } from '../../links/menu.js';
+    import { populateMenu } from '../../links/scrpt.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM loaded"); // Debug log
+        initializeMenu();
+        populateMenu();
+    });
+</script>
+    
+
+<script type="module">
+    import { populateMenu } from '../links/scrpt.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Preencher o menu com os links
+        populateMenu();
+    });
+</script>
 </body>
 </html>
+<script>
+    // script.js
+import { initializeMenu } from '../links/menu.js';
 
+// Inicializar o menu quando o documento carregar
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMenu();
+});
+</script>
 
 
     <main>
@@ -376,175 +402,374 @@
                 <th>Itinerário</th>
             </tr>
         </thead>
-<body>
-    <table>
-        <tbody>
-            <tr>
-                <td>
-                    <div class="dot-container" data-ponto="Rodoviária">
-                        <div class="dot"></div>
-                        Rodoviária (centro) P1
-                    </div>
-                    <div class="details open" style="margin-left: 20px;">
-                        <div class="line"></div>
-                        <span style="margin-left: 5px;">
-                            Segunda a Sexta Feira: 
-                            <span class="horario">05:00</span>
-                            <span class="horario">06:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">08:00</span>
-                            <span class="horario">09:00</span>
-                            <span class="horario">10:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">12:00</span>
-                            <span class="horario">13:00</span>
-                            <span class="horario">15:00</span>
-                            <span class="horario">16:00</span>
-                            <span class="horario">17:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:00</span>
-                            <span class="horario">20:20</span>
-                            <span class="horario">21:20</span>
-                            <span class="horario">22:20</span>
-                            <span class="horario">23:10</span>
-                        </span>
-                        <br><br>
-                        <span style="margin-left: 5px;">
-                            Sábados: 
-                            <span class="horario">05:00</span>
-                            <span class="horario">06:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">08:00</span>
-                            <span class="horario">10:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">12:00</span>
-                            <span class="horario">13:00</span>
-                            <span class="horario">16:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:30</span>
-                            <span class="horario">22:30</span>
-                        </span>
-                        <br><br>
-                        <span style="margin-left: 5px;">
-                            Domingos e Feriados:
-                            <span class="horario">05:00</span>
-                            <span class="horario">07:00</span>
-                            <span class="horario">11:00</span>
-                            <span class="horario">17:00</span>
-                            <span class="horario">18:00</span>
-                            <span class="horario">19:00</span>
-                            <span class="horario">20:30</span>
-                            <span class="horario">22:30</span>
-                        </span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <footer>
-        <div class="footer-line">
-            <div class="logos">
-                <img src="https://i.imgur.com/JJW9jBQ.png" alt="tug" class="logo">
-                <img src="https://i.imgur.com/vWUH8cQ.png" alt="dat" class="loguo">
-            </div>
-            <div class="social">
-                <a href="https://instagram.com/minhatug" target="_blank">Instagram: @minhatug</a>
-            </div>
-        </div>
-        </footer>
-    <script>
-function getDiaSemana() {
-    const agora = new Date();
-    const diaDaSemana = agora.getDay();
-
-    if (diaDaSemana === 0) return "Domingos e Feriados";
-    if (diaDaSemana === 6) return "Sábados";
-    return "Segunda a Sexta Feira";
-}
-
-function obterHoraAtualSaoPaulo() {
-    const agora = new Date();
-    const fusoHorarioSP = agora.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
-    const [data, horario] = fusoHorarioSP.split(" ");
-    const [hora, minuto] = horario.split(":").map(Number);
-    return { hora, minuto };
-}
-
-function processarHorarios() {
-    const seletorDia = getDiaSemana();
-    const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
-
-    const spansDoDia = Array.from(document.querySelectorAll('.details span')).filter(span => 
-        span.textContent.trim().startsWith(seletorDia)
-    );
-
-    spansDoDia.forEach(spanDia => {
-        const horariosDoDia = spanDia.querySelectorAll('.horario');
-        let encontrouProximo = false;
-
-        horariosDoDia.forEach(horario => {
-            horario.classList.remove('past', 'next', 'future');
-
-            const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
-            const horarioTotal = hora * 60 + minuto;
-            const atualTotal = horaAtual * 60 + minutosAtuais;
-
-            if (horarioTotal < atualTotal) {
-                horario.classList.add('past'); // Horário passado
-            } else if (!encontrouProximo) {
-                horario.classList.add('next'); // Próximo horário
-                encontrouProximo = true;
-            } else {
-                horario.classList.add('future'); // Horários futuros
-            }
+        <body>
+            <table>
+                <tbody>
+        
+                            </tbody>
+                        </table>
+            
+                <script>
+                    // Horários de saída da Rodoviária
+                    const horariosRodoviaria = ["05:00", "06:00", "07:00"]; // Exemplo
+            
+                    // Tempos de deslocamento em minutos
+                    const temposDeslocamento = {
+                        "Rodoviária": 0, // Ponto inicial
+                        "Avenida Agenor Pires da Fonseca": 15, // Ida: 15 minutos
+                        "Rodoviária (Retorno)": 30 // Ida e volta total: 30 minutos
+                    };
+            
+                    // Função para somar minutos a uma hora
+                    function adicionaMinutos(hora, minutos) {
+                        const [h, m] = hora.split(":").map(Number);
+                        const novaHora = new Date();
+                        novaHora.setHours(h);
+                        novaHora.setMinutes(m + minutos);
+                        return novaHora.toTimeString().slice(0, 5); // Retorna no formato HH:MM
+                    }
+            
+                    // Calcula horários para os pontos intermediários e o retorno
+                    const horariosIntermediarios = document.querySelector(".horarios-dinamicos");
+                    const horariosRetorno = document.querySelector(".horarios-dinamicos-retorno");
+            
+                    horariosRodoviaria.forEach(horario => {
+                        // Ponto intermediário (ida)
+                        const horarioIntermediario = adicionaMinutos(horario, temposDeslocamento["Avenida Agenor Pires da Fonseca"]);
+                        const spanIntermediario = document.createElement("span");
+                        spanIntermediario.classList.add("horario");
+                        spanIntermediario.textContent = horarioIntermediario;
+                        horariosIntermediarios.appendChild(spanIntermediario);
+            
+                        // Ponto final (retorno à Rodoviária)
+                        const horarioFinal = adicionaMinutos(horario, temposDeslocamento["Rodoviária (Retorno)"]);
+                        const spanRetorno = document.createElement("span");
+                        spanRetorno.classList.add("horario");
+                        spanRetorno.textContent = horarioFinal;
+                        horariosRetorno.appendChild(spanRetorno);
+                    });
+                </script>
+            </body>
+            <!DOCTYPE html>
+<html>
+    <body>
+        <div id="pontos-container"></div>
+        <script>
+            // Horários de partida da rodoviária
+            const horarios = {
+                semana: ["05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:20", "21:20", "22:20", "23:10"],
+                sabado: ["05:00", "06:00", "07:00", "08:00", "10:00", "11:00", "12:00", "13:00", "16:00", "18:00", "19:30", "22:30"],
+                domingo: ["05:00", "07:00", "11:00", "17:00", "19:00", "20:30", "22:30"]
+            };
+    
+            const pontos = [
+                { nome: "Rodoviária (Centro) P1", kmPercorrido: 0 },
+                { nome: "Rua Joaquim Miguel (Centro) P2", kmPercorrido: 0.8},
+            ];
+    
+            function calcularHorario(horarioBase, kmPercorrido) {
+    const tempoTotal = 58; // Tempo base em minutos
+    const kmTotal = 25;
+    
+    // Define períodos de pico
+    const periodosPico = [
+        { inicio: "09:00", fim: "17:59", adicionalMinutos: 80 },   // Pico da tarde e manhã
+        { inicio: "18:00", fim: "19:59", adicionalMinutos: 51 },   // Pico especifico
+        { inicio: "20:00", fim: "22:59", adicionalMinutos: 20 },   // Pico noite
+        { inicio: "23:10", fim: "00:30", adicionalMinutos: 100 }   // Pico pico especifico noite
+    ];
+    
+    // Função auxiliar para converter horário em minutos
+    function converterParaMinutos(horario) {
+        const [horas, mins] = horario.split(':').map(Number);
+        return horas * 60 + mins;
+    }
+    
+    // Verifica se o horário está em período de pico
+    function estaNoPico(horario) {
+        const minutosHorario = converterParaMinutos(horario);
+        return periodosPico.some(periodo => {
+            const inicioMinutos = converterParaMinutos(periodo.inicio);
+            const fimMinutos = converterParaMinutos(periodo.fim);
+            return minutosHorario >= inicioMinutos && minutosHorario <= fimMinutos;
         });
-    });
-
-    atualizarBolinhas();
-}
-
-function atualizarBolinhas() {
-    const dots = document.querySelectorAll('.dot-container');
-    const seletorDia = getDiaSemana();
-    const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
-
-    dots.forEach(dotContainer => {
-        const dot = dotContainer.querySelector('.dot');
-        const details = dotContainer.nextElementSibling;
-
-        const spanDoDia = Array.from(details.querySelectorAll('span')).find(span => 
+    }
+    
+    // Calcula tempo adicional baseado no período
+    function calcularTempoAdicional(horario) {
+        if (!estaNoPico(horario)) return 0;
+        
+        const minutosHorario = converterParaMinutos(horario);
+        for (const periodo of periodosPico) {
+            const inicioMinutos = converterParaMinutos(periodo.inicio);
+            const fimMinutos = converterParaMinutos(periodo.fim);
+            if (minutosHorario >= inicioMinutos && minutosHorario <= fimMinutos) {
+                return periodo.adicionalMinutos;
+            }
+        }
+        return 0;
+    }
+    
+    // Calcula o tempo base de percurso
+    const tempoPercorridoBase = (kmPercorrido / kmTotal) * tempoTotal;
+    
+    // Adiciona tempo extra se estiver em horário de pico
+    const tempoAdicional = calcularTempoAdicional(horarioBase);
+    const tempoPercorridoTotal = tempoPercorridoBase + 
+        (tempoAdicional * (kmPercorrido / kmTotal)); // Ajusta o tempo adicional proporcionalmente à distância
+    
+    // Calcula o novo horário
+    const [horas, mins] = horarioBase.split(':').map(Number);
+    let totalMinutos = horas * 60 + mins + tempoPercorridoTotal;
+    
+    // Ajusta para formato 24h
+    const novasHoras = Math.floor(totalMinutos / 60) % 24;
+    const novosMinutos = Math.floor(totalMinutos % 60);
+    
+    return `${String(novasHoras).padStart(2, '0')}:${String(novosMinutos).padStart(2, '0')}`;
+            }
+    
+            // Funções do sistema de cores dinâmicas
+            function getDiaSemana() {
+                const agora = new Date();
+                const diaDaSemana = agora.getDay();
+                
+                if (diaDaSemana === 0) return "Domingos e Feriados";
+                if (diaDaSemana === 6) return "Sábados";
+                return "Segunda a Sexta Feira";
+            }
+    
+            function obterHoraAtualSaoPaulo() {
+                const agora = new Date();
+                const fusoHorarioSP = agora.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+                const [data, horario] = fusoHorarioSP.split(" ");
+                const [hora, minuto] = horario.split(":").map(Number);
+                return { hora, minuto };
+            }
+    
+            function processarHorarios() {
+                const seletorDia = getDiaSemana();
+                const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+                const spansDoDia = Array.from(document.querySelectorAll('.details span')).filter(span =>
+                    span.textContent.trim().startsWith(seletorDia)
+                );
+    
+                spansDoDia.forEach(spanDia => {
+                    const horariosDoDia = spanDia.querySelectorAll('.horario');
+                    let encontrouProximo = false;
+    
+                    horariosDoDia.forEach(horario => {
+                        horario.classList.remove('past', 'next', 'future');
+    
+                        const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
+                        const horarioTotal = hora * 60 + minuto;
+                        const atualTotal = horaAtual * 60 + minutosAtuais;
+    
+                        if (horarioTotal < atualTotal) {
+                            horario.classList.add('past');
+                        } else if (!encontrouProximo) {
+                            horario.classList.add('next');
+                            encontrouProximo = true;
+                        } else {
+                            horario.classList.add('future');
+                        }
+                    });
+                });
+    
+                atualizarBolinhas();
+            }
+    
+            function atualizarBolinhas() {
+                const dots = document.querySelectorAll('.dot-container');
+                const seletorDia = getDiaSemana();
+                const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+                dots.forEach(dotContainer => {
+                    const dot = dotContainer.querySelector('.dot');
+                    const details = dotContainer.nextElementSibling;
+    
+                    const spanDoDia = Array.from(details.querySelectorAll('span')).find(span =>
+                        span.textContent.trim().startsWith(seletorDia)
+                    );
+    
+                    if (spanDoDia) {
+                        dot.classList.remove('current', 'past', 'future');
+                        dot.classList.add('past');
+    
+                        const horarios = Array.from(spanDoDia.querySelectorAll('.horario'));
+                        let encontrouAmarelo = false;
+    
+                        horarios.forEach(horario => {
+                            const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
+                            const horarioTotal = hora * 60 + minuto;
+                            const atualTotal = horaAtual * 60 + minutosAtuais;
+    
+                            if (horarioTotal - atualTotal === 0 && !encontrouAmarelo) {
+                                dot.classList.remove('past');
+                                dot.classList.add('current');
+                                encontrouAmarelo = true;
+                            }
+                        });
+                    }
+                });
+            }
+    
+            // Renderizar os pontos
+            const container = document.getElementById('pontos-container');
+            pontos.forEach(ponto => {
+                const horariosHTML = {
+                    semana: horarios.semana.map(h => calcularHorario(h, ponto.kmPercorrido)),
+                    sabado: horarios.sabado.map(h => calcularHorario(h, ponto.kmPercorrido)),
+                    domingo: horarios.domingo.map(h => calcularHorario(h, ponto.kmPercorrido))
+                };
+    
+                const pontoHTML = `
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="dot-container" data-ponto="${ponto.nome}">
+                                        <div class="dot"></div>
+                                        ${ponto.nome} (${ponto.kmPercorrido}km)
+                                    </div>
+                                    <div class="details open" style="margin-left: 20px;">
+                                        <div class="line"></div>
+                                        <span style="margin-left: 5px;">
+                                            Segunda a Sexta Feira: 
+                                            ${horariosHTML.semana.map(h => `<span class="horario">${h}</span>`).join('')}
+                                        </span>
+                                        <br><br>
+                                        <span style="margin-left: 5px;">
+                                            Sábados: 
+                                            ${horariosHTML.sabado.map(h => `<span class="horario">${h}</span>`).join('')}
+                                        </span>
+                                        <br><br>
+                                        <span style="margin-left: 5px;">
+                                            Domingos e Feriados:
+                                            ${horariosHTML.domingo.map(h => `<span class="horario">${h}</span>`).join('')}
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                `;
+    
+                container.innerHTML += pontoHTML;
+            });
+    
+            // Iniciar o sistema de cores dinâmicas
+            setInterval(processarHorarios, 60000);
+            processarHorarios();
+        </script>
+    </body>
+    </html>
+    
+        <footer>
+            <div class="footer-line">
+                <div class="logos">
+                    <img src="https://i.imgur.com/JJW9jBQ.png" alt="tug" class="logo">
+                    <img src="https://i.imgur.com/vWUH8cQ.png" alt="dat" class="loguo">
+                </div>
+                <div class="social">
+                    <a href="https://instagram.com/minhatug" target="_blank">Instagram: @minhatug</a>
+                </div>
+            </div>
+            </footer>
+        <script>
+    function getDiaSemana() {
+        const agora = new Date();
+        const diaDaSemana = agora.getDay();
+    
+        if (diaDaSemana === 0) return "Domingos e Feriados";
+        if (diaDaSemana === 6) return "Sábados";
+        return "Segunda a Sexta Feira";
+    }
+    
+    function obterHoraAtualSaoPaulo() {
+        const agora = new Date();
+        const fusoHorarioSP = agora.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+        const [data, horario] = fusoHorarioSP.split(" ");
+        const [hora, minuto] = horario.split(":").map(Number);
+        return { hora, minuto };
+    }
+    
+    function processarHorarios() {
+        const seletorDia = getDiaSemana();
+        const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+        const spansDoDia = Array.from(document.querySelectorAll('.details span')).filter(span => 
             span.textContent.trim().startsWith(seletorDia)
         );
-
-        if (spanDoDia) {
-            dot.classList.remove('current', 'past', 'future');
-            dot.classList.add('past'); // Cinza por padrão
-
-            const horarios = Array.from(spanDoDia.querySelectorAll('.horario'));
-            let encontrouAmarelo = false;
-
-            horarios.forEach(horario => {
+    
+        spansDoDia.forEach(spanDia => {
+            const horariosDoDia = spanDia.querySelectorAll('.horario');
+            let encontrouProximo = false;
+    
+            horariosDoDia.forEach(horario => {
+                horario.classList.remove('past', 'next', 'future');
+    
                 const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
                 const horarioTotal = hora * 60 + minuto;
                 const atualTotal = horaAtual * 60 + minutosAtuais;
-
-                // Bolinha amarela apenas para o horário 1 minuto no futuro
-                if (horarioTotal - atualTotal === 0 && !encontrouAmarelo) {
-                    dot.classList.remove('past');
-                    dot.classList.add('current'); // Amarelo para próximo horário
-                    encontrouAmarelo = true;
+    
+                if (horarioTotal < atualTotal) {
+                    horario.classList.add('past'); // Horário passado
+                } else if (!encontrouProximo) {
+                    horario.classList.add('next'); // Próximo horário
+                    encontrouProximo = true;
+                } else {
+                    horario.classList.add('future'); // Horários futuros
                 }
             });
-        }
-    });
-}
-
-// Atualizar os horários e as bolinhas a cada minuto
-setInterval(processarHorarios, 60000);
-processarHorarios();
-    </script>
-</body>
-</html>
+        });
+    
+        atualizarBolinhas();
+    }
+    
+    function atualizarBolinhas() {
+        const dots = document.querySelectorAll('.dot-container');
+        const seletorDia = getDiaSemana();
+        const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+        dots.forEach(dotContainer => {
+            const dot = dotContainer.querySelector('.dot');
+            const details = dotContainer.nextElementSibling;
+    
+            const spanDoDia = Array.from(details.querySelectorAll('span')).find(span => 
+                span.textContent.trim().startsWith(seletorDia)
+            );
+    
+            if (spanDoDia) {
+                dot.classList.remove('current', 'past', 'future');
+                dot.classList.add('past'); // Cinza por padrão
+    
+                const horarios = Array.from(spanDoDia.querySelectorAll('.horario'));
+                let encontrouAmarelo = false;
+    
+                horarios.forEach(horario => {
+                    const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
+                    const horarioTotal = hora * 60 + minuto;
+                    const atualTotal = horaAtual * 60 + minutosAtuais;
+    
+                    // Bolinha amarela apenas para o horário 1 minuto no futuro
+                    if (horarioTotal - atualTotal === 0 && !encontrouAmarelo) {
+                        dot.classList.remove('past');
+                        dot.classList.add('current'); // Amarelo para próximo horário
+                        encontrouAmarelo = true;
+                    }
+                });
+            }
+        });
+    }
+    
+    // Atualizar os horários e as bolinhas a cada minuto
+    setInterval(processarHorarios, 60000);
+    processarHorarios();
+        </script>
+    </body>
+    </html>
 
                                                                                                                       
 <footer>
