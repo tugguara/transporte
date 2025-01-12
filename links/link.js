@@ -11,8 +11,12 @@ export const menuLinks = {
                 url: "https://tugguara.github.io/transporte/l26%20adhema/",
             },
             {
+                nome: "L29 Adhemar de Barros",
+                url: "https://claude.ai/chat/a9225805-ec8b-48d1-b8a8-b397b2671f88",
+            },
+            {
                 nome: "L00 Vila Paraiba",
-                url: "https://tugguara.github.io/transporte/",
+                url: "https://claude.ai/chat/a9225805-ec8b-48d1-b8a8-b397b2671f88",
             }
         ]
     },
@@ -38,8 +42,8 @@ export const menuLinks = {
 
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    // Pega apenas o caminho da URL atual (depois do domínio)
-    const currentPath = window.location.pathname;
+    // Pega a URL completa atual
+    const currentUrl = window.location.href;
     
     menuContent.innerHTML = '';
     
@@ -60,17 +64,14 @@ export function populateMenu() {
             li.className = 'menu-item';
             
             const a = document.createElement('a');
+            // Usa exatamente a URL definida no objeto
             a.href = link.url;
             a.textContent = link.nome;
             a.className = 'menu-link';
             
-            // Extrai o caminho da URL do link
-            const linkPath = new URL(link.url).pathname;
-            
-            // Compara os caminhos
-            if (currentPath.includes(linkPath) || linkPath.includes(currentPath)) {
+            // Compara com a URL completa
+            if (currentUrl === link.url) {
                 a.classList.add('active');
-                // Adiciona o estilo azul diretamente
                 a.style.color = '#0066cc';
                 a.style.fontWeight = 'bold';
             }
@@ -84,5 +85,4 @@ export function populateMenu() {
     });
 }
 
-// Inicializa o menu quando a página carregar
 document.addEventListener('DOMContentLoaded', populateMenu);
