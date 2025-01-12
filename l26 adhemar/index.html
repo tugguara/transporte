@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JV ADHEMAR DE BARROS</title>
+    <link rel="icon" href="https://i.imgur.com/H5c3MvE.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
 </head>
 <head>
@@ -458,9 +459,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <script>
             // Horários de partida da rodoviária
             const horarios = {
-                semana: ["05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:20", "21:20", "22:20", "23:10"],
-                sabado: ["05:00", "06:00", "07:00", "08:00", "10:00", "11:00", "12:00", "13:00", "16:00", "18:00", "19:30", "22:30"],
-                domingo: ["05:00", "07:00", "11:00", "17:00", "19:00", "20:30", "22:30"]
+                semana: ["14:00"],
+                sabado: ["14:00"],
+                domingo: ["13:00"]
             };
     
             const pontos = [
@@ -474,10 +475,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Define períodos de pico
     const periodosPico = [
-        { inicio: "09:00", fim: "17:59", adicionalMinutos: 80 },   // Pico da tarde e manhã
-        { inicio: "18:00", fim: "19:59", adicionalMinutos: 51 },   // Pico especifico
-        { inicio: "20:00", fim: "22:59", adicionalMinutos: 20 },   // Pico noite
-        { inicio: "23:10", fim: "00:30", adicionalMinutos: 100 }   // Pico pico especifico noite
+        { inicio: "09:00", fim: "09:00", adicionalMinutos: 80 },   // Pico da tarde e manhã
     ];
     
     // Função auxiliar para converter horário em minutos
@@ -773,8 +771,5 @@ document.addEventListener('DOMContentLoaded', () => {
     </html>
 
                                                                                                                       
-<footer>
-    <p>Projeto Comunitário | Instagram: @minhatug</p>
-</footer>
 </body>
 </html>
