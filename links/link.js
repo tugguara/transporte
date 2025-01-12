@@ -1,3 +1,6 @@
+// Primeiro, adicione um data-page em cada página HTML
+// Por exemplo: <body data-page="l25-jardim-do-vale">
+
 export const menuLinks = {
     Onibusurbano: {
         titulo: "Ônibus Urbanos",
@@ -5,17 +8,17 @@ export const menuLinks = {
             {
                 nome: "L25 Jardim do Vale",
                 url: "https://tugguara.github.io/transporte/l25%20zerbini%20copy/",
-                active: false
+                pageId: "l25-jardim-do-vale"  // Identificador único para cada página
             },
             {
                 nome: "L26 Adhemar de Barros",
                 url: "https://tugguara.github.io/transporte/l26%20adhema/",
-                active: false
+                pageId: "l26-adhemar"
             },
             {
                 nome: "L00 Vila Paraiba",
                 url: "https://tugguara.github.io/transporte/",
-                active: false
+                pageId: "l00-vila-paraiba"
             }
         ]
     },
@@ -25,7 +28,7 @@ export const menuLinks = {
             {
                 nome: "ALT10 JD DO VALE",
                 url: "https://tugguara.github.io/transporte/",
-                active: false
+                pageId: "alt10-jd-vale"
             }
         ]
     },
@@ -35,7 +38,7 @@ export const menuLinks = {
             {
                 nome: "5312 Lorena x Guaratinguetá",
                 url: "https://tugguara.github.io/transporte/",
-                active: false
+                pageId: "5312-lorena-guara"
             }
         ]
     }
@@ -43,7 +46,7 @@ export const menuLinks = {
 
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    const currentUrl = window.location.href; // Get the full current URL
+    const currentPage = document.body.dataset.page; // Pega o identificador da página atual
     
     menuContent.innerHTML = '';
     
@@ -68,13 +71,9 @@ export function populateMenu() {
             a.textContent = link.nome;
             a.className = 'menu-link';
             
-            // Compare the cleaned URLs to handle trailing slashes and encoding differences
-            const cleanCurrentUrl = cleanUrl(currentUrl);
-            const cleanLinkUrl = cleanUrl(link.url);
-            
-            if (cleanCurrentUrl === cleanLinkUrl) {
+            // Verifica se é a página atual
+            if (link.pageId === currentPage) {
                 a.classList.add('active');
-                link.active = true;
             }
             
             li.appendChild(a);
@@ -86,22 +85,5 @@ export function populateMenu() {
     });
 }
 
-// Helper function to clean URLs for comparison
-function cleanUrl(url) {
-    try {
-        const parsed = new URL(url);
-        // Remove trailing slashes and decode the pathname
-        return decodeURIComponent(parsed.pathname.replace(/\/+$/, ''))
-            .toLowerCase() // Make comparison case-insensitive
-            .replace(/\s+/g, ''); // Remove whitespace
-    } catch (e) {
-        console.error('Invalid URL:', url);
-        return '';
-    }
-}
-
-// Call populateMenu when the page loads
+// Inicializa o menu quando a página carregar
 document.addEventListener('DOMContentLoaded', populateMenu);
-
-// Update active state when hash changes
-window.addEventListener('hashchange', populateMenu);
