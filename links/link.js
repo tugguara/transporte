@@ -44,7 +44,8 @@ export const menuLinks = {
 // Função para marcar o link ativo
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    const currentUrl = window.location.href; // Obtém a URL atual da página
+    const currentUrl = window.location.pathname; // Pega o caminho da URL
+    const currentHash = window.location.hash; // Pega o hash da URL (se existir)
     menuContent.innerHTML = '';
     
     Object.values(menuLinks).forEach(section => {
@@ -68,10 +69,11 @@ export function populateMenu() {
             a.textContent = link.nome;
             a.className = 'menu-link';
 
-            // Marcar o link como ativo se a URL do link for igual à URL atual
-            if (currentUrl === link.url) {
+            // Verificar se a URL do link corresponde ao caminho atual (sem considerar o protocolo e domínio)
+            const linkUrlPath = new URL(link.url).pathname; // Pega o caminho da URL do link
+            if (currentUrl === linkUrlPath) {
                 a.classList.add('active');
-                // Ao clicar, alterar a URL para incluir o '#'
+                // Ao clicar, adicionar o hash (#) na URL
                 a.addEventListener('click', (event) => {
                     event.preventDefault();
                     window.location.hash = ''; // Adiciona # na URL sem recarregar a página
