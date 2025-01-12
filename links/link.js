@@ -9,7 +9,7 @@ export const menuLinks = {
             },
             {
                 nome: "L26 Adhemar de Barros",
-                url: "http://127.0.0.1:5500/l26%20adhema/index.html",
+                url: "https://tugguara.github.io/transporte/l26%20adhema/",
                 active: false
             },
             {
