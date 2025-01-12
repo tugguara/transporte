@@ -1,15 +1,5 @@
 export const menuLinks = {
     Onibusurbano: {
-        titulo: "",
-        links: [
-            {
-                nome: "menu",
-                url: "https://tugguara.github.io/transporte/l25%20zerbini/",
-                active: false
-            }
-        ]
-    },
-    Onibusurbano: {
         titulo: "Ônibus Urbanos",
         links: [
             {
@@ -48,7 +38,22 @@ export const menuLinks = {
                 active: false
             }
         ]
-    }
+    },
+infos: {
+    titulo: "Portal de Informações",
+    links: [
+        {
+            nome: "MENU",
+            url: "",
+            active: false
+        },
+        {
+            nome: "INTEGRAÇÃO",
+            url: "",
+            active: false
+        }
+    ]
+  }
 };
 
 // Função para marcar o link ativo
