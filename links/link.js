@@ -41,11 +41,10 @@ export const menuLinks = {
     }
 };
 
-// Função para marcar o link ativo
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    const currentUrl = window.location.pathname; // Pega o caminho da URL
-    const currentHash = window.location.hash; // Pega o hash da URL (se existir)
+    const currentUrl = window.location.href; // Get the full current URL
+    
     menuContent.innerHTML = '';
     
     Object.values(menuLinks).forEach(section => {
@@ -56,7 +55,7 @@ export function populateMenu() {
         title.textContent = section.titulo;
         title.className = 'menu-title';
         sectionDiv.appendChild(title);
-
+        
         const list = document.createElement('ul');
         list.className = 'menu-list';
         
@@ -68,24 +67,41 @@ export function populateMenu() {
             a.href = link.url;
             a.textContent = link.nome;
             a.className = 'menu-link';
-
-            // Verificar se a URL do link corresponde ao caminho atual (sem considerar o protocolo e domínio)
-            const linkUrlPath = new URL(link.url).pathname; // Pega o caminho da URL do link
-            if (currentUrl === linkUrlPath) {
+            
+            // Compare the cleaned URLs to handle trailing slashes and encoding differences
+            const cleanCurrentUrl = cleanUrl(currentUrl);
+            const cleanLinkUrl = cleanUrl(link.url);
+            
+            if (cleanCurrentUrl === cleanLinkUrl) {
                 a.classList.add('active');
-                // Ao clicar, adicionar o hash (#) na URL
-                a.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    window.location.hash = ''; // Adiciona # na URL sem recarregar a página
-                    a.classList.add('active');
-                });
+                link.active = true;
             }
-
+            
             li.appendChild(a);
             list.appendChild(li);
         });
-
+        
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
 }
+
+// Helper function to clean URLs for comparison
+function cleanUrl(url) {
+    try {
+        const parsed = new URL(url);
+        // Remove trailing slashes and decode the pathname
+        return decodeURIComponent(parsed.pathname.replace(/\/+$/, ''))
+            .toLowerCase() // Make comparison case-insensitive
+            .replace(/\s+/g, ''); // Remove whitespace
+    } catch (e) {
+        console.error('Invalid URL:', url);
+        return '';
+    }
+}
+
+// Call populateMenu when the page loads
+document.addEventListener('DOMContentLoaded', populateMenu);
+
+// Update active state when hash changes
+window.addEventListener('hashchange', populateMenu);
