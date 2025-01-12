@@ -1,6 +1,3 @@
-// Primeiro, adicione um data-page em cada página HTML
-// Por exemplo: <body data-page="l25-jardim-do-vale">
-
 export const menuLinks = {
     Onibusurbano: {
         titulo: "Ônibus Urbanos",
@@ -8,17 +5,14 @@ export const menuLinks = {
             {
                 nome: "L25 Jardim do Vale",
                 url: "https://tugguara.github.io/transporte/l25%20zerbini%20copy/",
-                pageId: "l25-jardim-do-vale"  // Identificador único para cada página
             },
             {
                 nome: "L26 Adhemar de Barros",
                 url: "https://tugguara.github.io/transporte/l26%20adhema/",
-                pageId: "l26-adhemar"
             },
             {
                 nome: "L00 Vila Paraiba",
                 url: "https://tugguara.github.io/transporte/",
-                pageId: "l00-vila-paraiba"
             }
         ]
     },
@@ -28,7 +22,6 @@ export const menuLinks = {
             {
                 nome: "ALT10 JD DO VALE",
                 url: "https://tugguara.github.io/transporte/",
-                pageId: "alt10-jd-vale"
             }
         ]
     },
@@ -38,7 +31,6 @@ export const menuLinks = {
             {
                 nome: "5312 Lorena x Guaratinguetá",
                 url: "https://tugguara.github.io/transporte/",
-                pageId: "5312-lorena-guara"
             }
         ]
     }
@@ -46,7 +38,8 @@ export const menuLinks = {
 
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    const currentPage = document.body.dataset.page; // Pega o identificador da página atual
+    // Pega apenas o caminho da URL atual (depois do domínio)
+    const currentPath = window.location.pathname;
     
     menuContent.innerHTML = '';
     
@@ -71,9 +64,15 @@ export function populateMenu() {
             a.textContent = link.nome;
             a.className = 'menu-link';
             
-            // Verifica se é a página atual
-            if (link.pageId === currentPage) {
+            // Extrai o caminho da URL do link
+            const linkPath = new URL(link.url).pathname;
+            
+            // Compara os caminhos
+            if (currentPath.includes(linkPath) || linkPath.includes(currentPath)) {
                 a.classList.add('active');
+                // Adiciona o estilo azul diretamente
+                a.style.color = '#0066cc';
+                a.style.fontWeight = 'bold';
             }
             
             li.appendChild(a);
