@@ -42,7 +42,6 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <h1></h1>
         </div>
     </header>
 
@@ -51,11 +50,41 @@
         <button id="close-menu" aria-label="Fechar menu">X</button>
         <div id="menu-content"></div>
     </nav>
-    <script type="module" src="../menu.js"></script>
-    <script type="module" src="../link.js"></script>
-    <script src="scrpt.js"></script>
+<script type="module" src="https://tugguara.github.io/transporte/links/menu.js"></script>
+<script type="module" src="https://tugguara.github.io/transporte/links/scrpt.js"></script>
+<script type="module" src="https://tugguara.github.io/transporte/links/link.js"></script>
+
+<script type="module">
+    import { initializeMenu } from 'https://tugguara.github.io/transporte/links/menu.js';
+    import { populateMenu } from 'https://tugguara.github.io/transporte/links/scrpt.js';
+    import { menuLinks } from 'https://tugguara.github.io/transporte/links/link.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM loaded");
+        initializeMenu();
+        populateMenu();
+    });
+</script>
+
+    
+
+<script type="module">
+    import { populateMenu } from 'https://tugguara.github.io/transporte/links/scrpt.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        populateMenu();
+    });
+</script>
 </body>
 </html>
+<script>
+import { initializeMenu } from 'https://tugguara.github.io/transporte/links/menu.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMenu();
+});
+</script>
+<script src="scrpt.js"></script>
 
 
 
@@ -84,12 +113,23 @@
         }
 
         .message {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    margin: 0 auto; /* Centraliza a tabela */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+/* Media query para dispositivos menores */
+@media (min-width: 769px) {
+    .message {
+        width: 70%; /* Ajuste a largura para dispositivos móveis */
+    }
+}
+
 
         /* Pop-up */
         .popup {
@@ -252,7 +292,6 @@
         .footer-links {
             display: flex;
             justify-content: space-between;
-            padding: 40px 10%;
             background-color: #f8f9fa;
             margin-top: 40px;
         }
@@ -297,22 +336,19 @@
 <body>
     <!-- Mensagens Iniciais -->
     <div class="messages">
-        <div class="message">
-            <h2>🎉 menu em teste</h2>
-            <p>Bem-vindo ao novo site não oficial da tug! ainda está sendo atualizado.</p>
+        <div class="message" onclick="window.location.href='https://tugguara.github.io/transporte/l26%20adhemar/'">
+            <h2>🎉 Menu em teste</h2>
+            <p>Bem-vindo ao novo site não oficial da TUG! Ainda está sendo atualizado.</p>
         </div>
-        <div class="message">
+        <div class="message" onclick="window.location.href='https://tugguara.github.io/transporte/l25%20zerbini/'">
             <h2>🔄 Integração</h2>
-            <p>o site está sendo consertado, caso queira entrar nos itinerarios: <a href="https://tugguara.github.io/transporte/l26%20adhemar/">l26 adhemar</a>
-                <a href="https://tugguara.github.io/transporte/l25%20zerbini/">l25 zerbini</a> 
-            </p>
+            <p>O site está sendo consertado. Clique para acessar mais informações.</p>
         </div>
     </div>
+    
+    
 
-    <!-- Pop-up -->
-    <div class="popup" id="newSitePopup">
-        <p>relaxe, o site está sendo construido, aguarde.</p>
-    </div>
+  
 
     <!-- Galeria -->
     <section class="gallery-section">
