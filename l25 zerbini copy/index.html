@@ -52,14 +52,14 @@
         <button id="close-menu" aria-label="Fechar menu">X</button>
         <div id="menu-content"></div>
     </nav>
-<script type="module" src="https://tugguara.github.io/TUG/links/menu.js"></script>
-<script type="module" src="https://tugguara.github.io/TUG/links/scrpt.js"></script>
-<script type="module" src="https://tugguara.github.io/TUG/links/link.js"></script>
+<script type="module" src="../TUG/links/menu.js"></script>
+<script type="module" src="../TUG/links/scrpt.js"></script>
+<script type="module" src="../TUG/links/link.js"></script>
 
 <script type="module">
-    import { initializeMenu } from 'https://tugguara.github.io/TUG/links/menu.js';
-    import { populateMenu } from 'https://tugguara.github.io/TUG/links/scrpt.js';
-    import { menuLinks } from 'https://tugguara.github.io/TUG/links/link.js';
+    import { initializeMenu } from '../TUG/links/menu.js';
+    import { populateMenu } from '../TUG/links/scrpt.js';
+    import { menuLinks } from '../TUG/links/link.js';
 
     document.addEventListener('DOMContentLoaded', () => {
         console.log("DOM loaded");
@@ -71,7 +71,7 @@
     
 
 <script type="module">
-    import { populateMenu } from 'https://tugguara.github.io/TUG/links/scrpt.js';
+    import { populateMenu } from '../TUG/links/scrpt.js';
 
     document.addEventListener('DOMContentLoaded', () => {
         populateMenu();
@@ -80,7 +80,7 @@
 </body>
 </html>
 <script>
-import { initializeMenu } from 'https://tugguara.github.io/TUG/links/menu.js';
+import { initializeMenu } from '../TUG/links/menu.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeMenu();
