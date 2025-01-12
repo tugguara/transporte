@@ -4,12 +4,12 @@ export const menuLinks = {
         links: [
             {
                 nome: "L25 Jardim do Vale",
-                url: "https://tugguara.github.io/transporte/l25%20zerbini%20copy/",
+                url: "https://tugguara.github.io/transporte/l25%20zerbini/",
                 active: false
             },
             {
                 nome: "L26 Adhemar de Barros",
-                url: "https://tugguara.github.io/transporte/l26%20adhema/",
+                url: "https://tugguara.github.io/transporte/l26%20adhemar/",
                 active: false
             },
             {
