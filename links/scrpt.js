@@ -1,32 +1,41 @@
-// Função para manipulação do menu
-const menuButton = document.getElementById("menu-button");
-const closeButton = document.getElementById("close-menu");
-const sideMenu = document.getElementById("side-menu");
-
-// Função para exibir ou esconder o menu
-menuButton.addEventListener("click", function () {
-    sideMenu.classList.add("visible");
-});
-
-closeButton.addEventListener("click", function () {
-    sideMenu.classList.remove("visible");
-});
-
-// Função para mostrar a mensagem com atraso
-window.onload = function () {
-    const message = document.getElementById('message');
-
-    if (message) {
-        // Mostrar a mensagem com transição
-        message.classList.add('show');
-        
-        // Após 5 segundos, esconder a mensagem
-        setTimeout(function () {
-            message.classList.remove('show');
-        }, 5000);
-    }
-};
+import { menuLinks } from './link.js';  // Agora você importa corretamente
 
 export function populateMenu() {
-    // Código para preencher o menu com os links
+    const menuContent = document.getElementById('menu-content'); 
+    console.log("carregando");
+    
+    menuContent.innerHTML = '';
+    
+    Object.values(menuLinks).forEach(section => {
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'menu-section';
+        
+        const title = document.createElement('h2');
+        title.textContent = section.titulo;
+        title.className = 'menu-title';
+        sectionDiv.appendChild(title);
+
+        const list = document.createElement('ul');
+        list.className = 'menu-list';
+        
+        section.links.forEach(link => {
+            const li = document.createElement('li');
+            li.className = 'menu-item';
+            
+            const a = document.createElement('a');
+            a.href = link.url;
+            a.textContent = link.nome;
+            a.className = 'menu-link';
+            
+            if (link.active) {
+                a.classList.add('active');
+            }
+            
+            li.appendChild(a);
+            list.appendChild(li);
+        });
+        
+        sectionDiv.appendChild(list);
+        menuContent.appendChild(sectionDiv);
+    });
 }

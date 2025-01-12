@@ -36,6 +36,8 @@
     </style>
 </head>
     <!-- Cabeçalho -->
+
+    <!-- Menu lateral -->
     <header>
         <div class="header-container">
             <div id="menu-button">
@@ -43,23 +45,50 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            <h1>L26 JARDIM DO VALE/ADHEMAR DE BARROS</h1>
+            <h1>L25 JARDIM DO VALE/PONTE ZERBINI</h1>
         </div>
+        <h2 class="subtitle">volta via ponte rosinha filippo</h2>
     </header>
 
     <!-- Menu lateral -->
     <nav id="side-menu" class="hidden">
         <button id="close-menu" aria-label="Fechar menu">X</button>
-        <h2>Ônibus Urbano</h2>
-        <ul>
-            <li><a href="https://tugguara.github.io/transporte/l25%20zerbini/">L25 Jardim do Vale</a></li>
-            <li><a href="#" class="active">L26 Adhemar de Barros</a></li>
-        </ul>
+        <div id="menu-content"></div>
     </nav>
+<script type="module" src="/links/menu.js"></script>
+<script type="module" src="/links/scrpt.js"></script>
+<script type="module" src="/links/link.js"></script>
 
-    <script src="scrpt.js"></script>
+<script type="module">
+    import { initializeMenu } from '/links/menu.js';
+    import { populateMenu } from '/links/scrpt.js';
+    import { menuLinks } from '/links/link.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM loaded");
+        initializeMenu();
+        populateMenu();
+    });
+</script>
+
+    
+
+<script type="module">
+    import { populateMenu } from '/links/scrpt.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        populateMenu();
+    });
+</script>
 </body>
 </html>
+<script>
+import { initializeMenu } from '/links/menu.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMenu();
+});
+</script>
 
 
 
