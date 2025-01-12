@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+        
+        .top-bar {
+            background-color: #1e90ff;
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+        
+        .title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            padding: 0 10px;
+        }
+        
+        .back-arrow {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: #1e90ff;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            flex-shrink: 0;
+        }
+        
+        .back-arrow:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        
+        .header-image {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .header-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .title {
+            color: #0056b3;
+            text-align: center;
+            font-size: 2em;
+            margin: 0;
+            word-break: break-word;
+        }
+        
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            line-height: 1.6;
+            color: #333;
+            margin: 0 10px;
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 1.5em;
+            }
+
+            .header-image {
+                height: 300px;
+            }
+
+            .content {
+                padding: 15px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .top-bar {
+                height: 50px;
+                padding: 0 15px;
+            }
+
+            .logo {
+                height: 30px;
+            }
+
+            .title-container {
+                gap: 10px;
+            }
+
+            .back-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+            }
+
+            .title {
+                font-size: 1.2em;
+            }
+
+            .header-image {
+                height: 200px;
+            }
+
+            .content {
+                padding: 12px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="https://i.imgur.com/RjRd7lE.png" alt="Logo" class="logo" />
+    </div>
+
+    <div class="container">
+        <div class="header-image">
+            <img src="https://i.imgur.com/APUPZc5.png" alt="cabeçalho" />
+        </div>
+        
+        <div class="title-container">
+            <a href="https://tugguara.github.io/transporte/" class="back-arrow">←</a>
+            <h1 class="title">PASSAGEM DE ÔNIBUS PODE CHEGAR EM ATÉ R$12</h1>
+        </div>
+        
+        <style>
+            p {
+                margin-bottom: 15px;
+                line-height: 1.6;
+            }
+        </style>
+
+        <div class="content">
+            <p>De acordo com <a href="https://www.instagram.com/vozativaguara?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="link-with-icon">
+                VAG 
+                <img src="https://i.imgur.com/SeET6B1.png" alt="link" class="icon-link">
+            </a>(Voz Ativa de Guaratinguetá), o preço da passagem do transporte público pode sofrer um aumento significativo dobrando para R$11 ou R$12 devido a dois fatores principais: o atraso no reajuste tarifário e uma dívida acumulada de R$24 milhões da prefeitura com a empresa Oceano. Atualmente, a tarifa é de R$5,50. Valor que já pesa no orçamento dos moradores especialmente os de baixa renda. Um aumento é apenas uma questão de tempo e deve impactar diretamente a população.</p>
+            
+            <p> </p>
+
+            <p>A empresa <a href="https://www.instagram.com/rodotur_oceano?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="link-with-icon">
+                Oceano 
+                <img src="https://i.imgur.com/SeET6B1.png" alt="link" class="icon-link">
+            </a> que opera há 60 anos em Guaratinguetá nunca teve seus contratos com a prefeitura divulgados ao público. Isso impede que os moradores tenham conhecimento sobre as condições desse acordo, gerando desconfiança e falta de transparência.</p>
+            
+            <p>O prefeito Marcus Soliva que governou por oito anos possuía experiência como gerente de concessionária mas deixou o transporte público em uma situação crítica. Um questionamento que emerge é: se os políticos da cidade dependessem do transporte público, será que o sistema estaria tão sucateado e caro para a população? Segundo o IBGE, brasileiros que recebem salário mínimo gastam em média 17% de sua renda com transporte público. Essa porcentagem poderia ser investida localmente fortalecendo o comércio e outros setores da economia de Guaratinguetá.</p>
+
+            <p>Estudos realizados pela Associação Nacional das Empresas de Transportes Urbanos (NTU) mostram os benefícios da Tarifa Zero em municípios que adotaram essa política como Caucaia (CE) e Paranaguá (PR), houve um aumento significativo na atividade econômica e até redução de acidentes de trânsito. Caucaia por exemplo registrou um crescimento de 25% no comércio e serviços, enquanto Paranaguá teve um aumento de 30% no comércio e uma redução de 40% nos acidentes. Apesar desses benefícios a Tarifa Zero não faz parte dos planos da gestão atual de Junior Filippo que a considera uma ideia utópica. Assim fica a expectativa de que ações como a realização de audiências públicas para garantir transparência nos contratos, o retorno das linhas cortadas na pandemia e uma redução gradativa no valor das passagens sejam implementadas para aliviar os impactos no transporte público.</p>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>/* Rodapé */
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        color: #7f8c8d;
+    }
+    footer p {
+font-size: 14px;
+}
+.footer-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid #ddd;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+}
+
+.logos {
+    display: flex;
+    gap: 10px;
+}
+
+.logo {
+    height: 40px;
+}
+
+.social a {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social a:hover {
+    color: #1a5276;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.loguo {
+    width: 90px;
+    height: auto;
+    margin-top: 10px;
+}
+    </style>
+<footer>
+    <div class="footer-line">
+        <div class="logos">
+            <img src="https://i.imgur.com/vWUH8cQ.png" alt="dat" class="logo">
+        </div>
+        <div class="social">
+            <a href="https://instagram.com/minhatug" target="_blank">Instagram: @minhatug</a>
+        </div>
+    </div>
+    </footer>
