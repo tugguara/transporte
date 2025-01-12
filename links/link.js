@@ -5,18 +5,17 @@ export const menuLinks = {
             {
                 nome: "L25 Jardim do Vale",
                 url: "https://tugguara.github.io/transporte/l25%20zerbini%20copy/",
+                active: false
             },
             {
                 nome: "L26 Adhemar de Barros",
                 url: "https://tugguara.github.io/transporte/l26%20adhema/",
-            },
-            {
-                nome: "L29 Adhemar de Barros",
-                url: "https://claude.ai/chat/a9225805-ec8b-48d1-b8a8-b397b2671f88",
+                active: false
             },
             {
                 nome: "L00 Vila Paraiba",
-                url: "https://claude.ai/chat/a9225805-ec8b-48d1-b8a8-b397b2671f88",
+                url: "https://tugguara.github.io/transporte/paraiba/",
+                active: false
             }
         ]
     },
@@ -25,7 +24,8 @@ export const menuLinks = {
         links: [
             {
                 nome: "ALT10 JD DO VALE",
-                url: "https://tugguara.github.io/transporte/",
+                url: "",
+                active: false
             }
         ]
     },
@@ -34,17 +34,17 @@ export const menuLinks = {
         links: [
             {
                 nome: "5312 Lorena x Guaratinguetá",
-                url: "https://tugguara.github.io/transporte/",
+                url: "",
+                active: false
             }
         ]
     }
 };
 
+// Função para marcar o link ativo
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    // Pega a URL completa atual
-    const currentUrl = window.location.href;
-    
+    const currentUrl = window.location.href; // Obtém a URL atual da página
     menuContent.innerHTML = '';
     
     Object.values(menuLinks).forEach(section => {
@@ -55,7 +55,7 @@ export function populateMenu() {
         title.textContent = section.titulo;
         title.className = 'menu-title';
         sectionDiv.appendChild(title);
-        
+
         const list = document.createElement('ul');
         list.className = 'menu-list';
         
@@ -64,25 +64,26 @@ export function populateMenu() {
             li.className = 'menu-item';
             
             const a = document.createElement('a');
-            // Usa exatamente a URL definida no objeto
             a.href = link.url;
             a.textContent = link.nome;
             a.className = 'menu-link';
-            
-            // Compara com a URL completa
+
+            // Marcar o link como ativo se a URL do link for igual à URL atual
             if (currentUrl === link.url) {
                 a.classList.add('active');
-                a.style.color = '#0066cc';
-                a.style.fontWeight = 'bold';
+                // Ao clicar, alterar a URL para incluir o '#'
+                a.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.location.hash = ''; // Adiciona # na URL sem recarregar a página
+                    a.classList.add('active');
+                });
             }
-            
+
             li.appendChild(a);
             list.appendChild(li);
         });
-        
+
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
 }
-
-document.addEventListener('DOMContentLoaded', populateMenu);
