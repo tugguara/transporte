@@ -14,7 +14,7 @@ export const menuLinks = {
             },
             {
                 nome: "NOS AJUDE",
-                url: "",
+                url: "https://tugguara.github.io/transporte/informacao/nos%20ajude/",
                 active: false
             }
         ]
