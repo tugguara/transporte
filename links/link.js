@@ -11,6 +11,11 @@ export const menuLinks = {
                 nome: "INTEGRAÇÃO",
                 url: "",
                 active: false
+            },
+            {
+                nome: "NOS AJUDE",
+                url: "",
+                active: false
             }
         ]
     },
