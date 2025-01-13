@@ -468,18 +468,40 @@ document.addEventListener('DOMContentLoaded', () => {
             const pontos = [
                 { nome: "Rodoviária (Centro) P1", kmPercorrido: 0 },
                 { nome: "Rua Joaquim Miguel (Centro) P2", kmPercorrido: 0.8},
+                { nome: "Rua Coronel Pires Barbosa 574 (Vila Alves) P3", kmPercorrido: 1.1},
+                { nome: "Rua Coronel Pires Barbosa 908 (Vila Alves) P4", kmPercorrido: 1.3},
+                { nome: "Avenida Juscelino Kubitscheck de Oliveira (Campo do Galvão) P5", kmPercorrido: 1.6},
+                { nome: "Avenida Juscelino Kubitscheck de Oliveira 79 (Centro Historico) P6", kmPercorrido: 1.8},
+                { nome: "Avenida Presidente Vargas 450 (Vila Paraiba) P7", kmPercorrido: 2.0},
+                { nome: "Avenida Presidente Vargas 521-531 (Vila Paraiba) P8", kmPercorrido: 2.4},
+                { nome: "Avenida Presidente Vargas 1196-1396 (Vila Paraiba) P9", kmPercorrido: 2.4},
+                { nome: "Praça Cristóvão Colombo 1 (Nova Guará) P9-01", kmPercorrido: 2.7},
+                { nome: "Rua Dom João VI 154 (Nova Guará) P10", kmPercorrido: 3.0},
+                { nome: "Rua Dom João VI 424-500 (Nova Guará) P11", kmPercorrido: 3.3},
+                { nome: "Avenida Rosinha Filippo 905 (Parque Anna Guilhermina) P12", kmPercorrido: 3.49},
+                { nome: "Avenida Rosinha Felippo 158 (Cohab) P13", kmPercorrido: 3.67},
+                { nome: "Avenida Dona Rosinha Filippo 426 (Cohab) P14", kmPercorrido: 3.95},
+                { nome: "Avenida Dona Rosinha Filippo 641 (Cohab) P15", kmPercorrido: 4.15},
+                { nome: "Rua José Carapina Junqueira 26 (Parque das Alamedas) P16", kmPercorrido: 4.15},
+                { nome: "Avenida Professor João Rodrigues Alckmin 60 (Beira Rio II) P17", kmPercorrido: 4.45},
+                { nome: "Avenida Professor João Rodrigues Alckmin 1108 (Beira Rio II) P18", kmPercorrido: 4.77},
+                { nome: "Avenida Professor João Rodrigues Alckmin 1276 (Beira Rio II) P19", kmPercorrido: 4.94},
+                { nome: "Avenida Professor João Rodrigues Alckmin (Jardim Esperança) P20", kmPercorrido: 5.34},
+                { nome: "Avenida Professor João Rodrigues Alckmin (Jardim Esperança) P21", kmPercorrido: 5.50},
+                { nome: "Avenida Professor João Rodrigues Alckmin (Jardim Esperança) P22", kmPercorrido: 5.83},
+                { nome: "Avenida Agenor Pires da Fonseca 222 (Jardim do Vale I) P23", kmPercorrido: 6.18},
             ];
     
             function calcularHorario(horarioBase, kmPercorrido) {
     const tempoTotal = 58; // Tempo base em minutos
-    const kmTotal = 25;
+    const kmTotal = 18.56;
     
     // Define períodos de pico
     const periodosPico = [
-        { inicio: "09:00", fim: "17:59", adicionalMinutos: 80 },   // Pico da tarde e manhã
+        { inicio: "09:00", fim: "17:59", adicionalMinutos: 40 },   // Pico da tarde e manhã
         { inicio: "18:00", fim: "19:59", adicionalMinutos: 51 },   // Pico especifico
         { inicio: "20:00", fim: "22:59", adicionalMinutos: 20 },   // Pico noite
-        { inicio: "23:10", fim: "00:30", adicionalMinutos: 100 }   // Pico pico especifico noite
+        { inicio: "23:10", fim: "00:30", adicionalMinutos: 10 },   // Pico pico especifico noite
     ];
     
     // Função auxiliar para converter horário em minutos
