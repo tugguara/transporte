@@ -31,11 +31,6 @@ export const menuLinks = {
                 nome: "L26 Adhemar de Barros",
                 url: "https://tugguara.github.io/transporte/l26%20adhemar/",
                 active: false
-            },
-            {
-                nome: "L00 Vila Paraiba",
-                url: "https://tugguara.github.io/transporte/paraiba/",
-                active: false
             }
         ]
     },
@@ -44,7 +39,7 @@ export const menuLinks = {
         links: [
             {
                 nome: "ALT10 JD DO VALE",
-                url: "",
+                url: "https://tugguara.github.io/transporte/alt10/",
                 active: false
             }
         ]

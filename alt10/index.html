@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALT 10 JD DO VALE</title>
+    <link rel="icon" href="https://i.imgur.com/3saHPdU.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Deslizante</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        h1 { 
+            font-size: 36px; 
+            font-weight: bold; 
+            margin-bottom: 3px;     
+            background-color: #2c3e50; 
+            color: #fff; 
+            padding: 2px 0; 
+            text-align: center; 
+            border-radius: 8px; 
+            margin-bottom: 20px;
+        }
+
+/* Aplica padding apenas em telas maiores que 768px (computadores) */
+@media screen and (min-width: 943px) {
+    h1 {
+        padding-left: 450px; /* Valor menor para PC */
+        margin: 0 auto; /* Centraliza automaticamente */
+        width: fit-content;
+    }
+}
+    </style>
+</head>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-container">
+            <div id="menu-button">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <h1>ALT10 JARDIM DO VALE</h1>
+        </div>
+        <h2 class="subtitle">via feg e fórum</h2>
+    </header>
+
+    <!-- Menu lateral -->
+    <nav id="side-menu" class="hidden">
+        <button id="close-menu" aria-label="Fechar menu">X</button>
+        <div id="menu-content"></div>
+    </nav>
+<script type="module" src="https://tugguara.github.io/transporte/links/menu.js"></script>
+<script type="module" src="https://tugguara.github.io/transporte/links/scrpt.js"></script>
+<script type="module" src="https://tugguara.github.io/transporte/links/link.js"></script>
+
+<script type="module">
+    import { initializeMenu } from 'https://tugguara.github.io/transporte/links/menu.js';
+    import { populateMenu } from 'https://tugguara.github.io/transporte/links/scrpt.js';
+    import { menuLinks } from 'https://tugguara.github.io/transporte/links/link.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log("DOM loaded");
+        initializeMenu();
+        populateMenu();
+    });
+</script>
+
+    
+
+<script type="module">
+    import { populateMenu } from 'https://tugguara.github.io/transporte/links/scrpt.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        populateMenu();
+    });
+</script>
+</body>
+</html>
+<script>
+import { initializeMenu } from 'https://tugguara.github.io/transporte/links/menu.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+    initializeMenu();
+});
+</script>
+
+<main>
+    <section>
+        <h2>Segunda-Feira à Sexta-Feira</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Horário de Partida - Centro</th>
+                </tr>
+                    <tr>
+                    <td>07:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        07:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                    <td>07:45</td>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            08:00 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td>08:25</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        08:40 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>09:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        09:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>09:45</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        10:00 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10:25</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        10:40 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        11:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11:45</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        12:00 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12:25</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        12:40 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        13:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13:45</td>
+                </tr>
+                <tr>
+                    <td>15:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        15:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15:45</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        16:00 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16:25</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        16:40 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17:05</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        17:20 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17:45</td>
+                </tr>
+                <tr onclick="toggleDetails(this)">
+                    <td>
+                        <div class="clickable2">
+                        18:00 - BAIRRO
+                            <span class="arrow">&#9660;</span>
+                        </div>
+                        <div class="details">Horário que a Van chega no bairro (ponto final)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>18:25</td>
+                </tr>
+                <script src="scrpt.js"></script>
+                <script>
+                    function toggleDetails(row) {
+                        const details = row.querySelector('.details');
+                        const arrow = row.querySelector('.arrow');
+            
+                        if (details.classList.contains('open')) {
+                            details.style.height = details.scrollHeight + "px";
+                            setTimeout(() => {
+                                details.style.height = "0";
+                            }, 1);
+                            details.addEventListener('transitionend', () => {
+                                details.classList.remove('open');
+                            }, { once: true });
+                            arrow.classList.remove('rotate');
+                        } else {
+                            details.style.height = "0";
+                            details.classList.add('open');
+                            setTimeout(() => {
+                                details.style.height = details.scrollHeight + "px";
+                            }, 1);
+                            arrow.classList.add('rotate');
+                        }
+                    }
+            
+                    window.onload = function() {
+                        const scheduleRow = document.querySelector('.schedule-row');
+                        toggleDetails(scheduleRow); // Abre a tabela inicialmente
+                    };
+                </script>
+                    </tbody>
+                </table>
+              </div>
+            </div>
+        <main>
+            <section>
+                <h2>Sábados</h2>
+                <table class="table-saturday">
+                <thead>
+                    <tr>
+                    <th>Horário de Partida - Centro</th>
+                    </tr>
+                        <tr>
+                        <td>07:05</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            07:20 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                        <td>07:45</td>
+                        <tr onclick="toggleDetails(this)">
+                            <td>
+                                <div class="clickable2">
+                                08:00 - BAIRRO
+                                    <span class="arrow">&#9660;</span>
+                                </div>
+                                <div class="details">Horário que a Van chega no bairro (ponto final)
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                        <td>08:25</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            08:40 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>09:05</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            09:20 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>09:45</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            10:00 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10:25</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            10:40 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11:05</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            11:20 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11:45</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            12:00 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12:25</td>
+                    </tr>
+                    <tr onclick="toggleDetails(this)">
+                        <td>
+                            <div class="clickable2">
+                            12:40 - BAIRRO
+                                <span class="arrow">&#9660;</span>
+                            </div>
+                            <div class="details">Horário que a Van chega no bairro (ponto final)
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13:05</td>
+                    </tr>                                                                                        
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários de Ônibus</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            padding: 20px;
+        }
+        
+        table {
+            width: 50%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+    table {
+        width: 100%; /* Garante que a tabela ocupe toda a largura no celular */
+        table-layout: fixed; /* Mantém o layout proporcional */
+    }
+
+    th, td {
+        padding: 10px; /* Reduz o espaço interno para caber melhor */
+        font-size: 14px; /* Fonte menor para dispositivos móveis */
+        word-wrap: break-word; /* Quebra o texto para evitar overflow */
+    }
+}
+        
+        th {
+            background-color: #2980b9;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .dot-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        .dot.current {
+            background-color: #ffd700; /* Amarelo para o ponto atual */
+        }
+        
+        .dot.past {
+            background-color: #ccc;
+        }
+        .details {
+            overflow: hidden;
+            height: 0;
+            transition: height 0.3s ease-out;
+            margin-left: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #ddd;
+            display: none;
+        }
+        
+        .details.open {
+            display: block;
+        }
+        .horario {
+            display: inline-block;
+            margin: 0 2px;
+            padding: 2px 5px;
+            transition: color 0.3s;
+            color: #333;
+        }
+        
+        .horario.past {
+            color: #ff6b6b;
+        }
+        
+        .horario.next {
+            color: #51cf66;
+        }
+        
+
+    </style>
+</head>
+    </table>
+    </body>
+    </html>
+
+    <style>
+        .aviso {
+            color: rgb(80, 80, 80);
+            font-size: 15px; /* Tamanho do texto */
+            text-align: center; /* Centraliza o texto horizontalmente */
+            margin: 20px auto; /* Espaçamento acima e abaixo */
+            width: fit-content; /* Ajusta a largura ao conteúdo */
+        }
+    </style>
+    <section>
+        <div class="aviso">itinerario não informado.</div>
+    </section>
+    
+    
+        <footer>
+            <div class="footer-line">
+                <div class="logos">
+                    <img src="https://i.imgur.com/2ulEn3a.png" alt="paulinho" class="logo">
+                    <img src="https://i.imgur.com/vWUH8cQ.png" alt="dat" class="loguo">
+                </div>
+                <div class="social">
+                    <a href="https://instagram.com/minhatug" target="_blank">Instagram: @minhatug</a>
+                </div>
+            </div>
+            </footer>
+        <script>
+    function getDiaSemana() {
+        const agora = new Date();
+        const diaDaSemana = agora.getDay();
+    
+        if (diaDaSemana === 0) return "Domingos e Feriados";
+        if (diaDaSemana === 6) return "Sábados";
+        return "Segunda a Sexta Feira";
+    }
+    
+    function obterHoraAtualSaoPaulo() {
+        const agora = new Date();
+        const fusoHorarioSP = agora.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" });
+        const [data, horario] = fusoHorarioSP.split(" ");
+        const [hora, minuto] = horario.split(":").map(Number);
+        return { hora, minuto };
+    }
+    
+    function processarHorarios() {
+        const seletorDia = getDiaSemana();
+        const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+        const spansDoDia = Array.from(document.querySelectorAll('.details span')).filter(span => 
+            span.textContent.trim().startsWith(seletorDia)
+        );
+    
+        spansDoDia.forEach(spanDia => {
+            const horariosDoDia = spanDia.querySelectorAll('.horario');
+            let encontrouProximo = false;
+    
+            horariosDoDia.forEach(horario => {
+                horario.classList.remove('past', 'next', 'future');
+    
+                const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
+                const horarioTotal = hora * 60 + minuto;
+                const atualTotal = horaAtual * 60 + minutosAtuais;
+    
+                if (horarioTotal < atualTotal) {
+                    horario.classList.add('past'); // Horário passado
+                } else if (!encontrouProximo) {
+                    horario.classList.add('next'); // Próximo horário
+                    encontrouProximo = true;
+                } else {
+                    horario.classList.add('future'); // Horários futuros
+                }
+            });
+        });
+    
+        atualizarBolinhas();
+    }
+    
+    function atualizarBolinhas() {
+        const dots = document.querySelectorAll('.dot-container');
+        const seletorDia = getDiaSemana();
+        const { hora: horaAtual, minuto: minutosAtuais } = obterHoraAtualSaoPaulo();
+    
+        dots.forEach(dotContainer => {
+            const dot = dotContainer.querySelector('.dot');
+            const details = dotContainer.nextElementSibling;
+    
+            const spanDoDia = Array.from(details.querySelectorAll('span')).find(span => 
+                span.textContent.trim().startsWith(seletorDia)
+            );
+    
+            if (spanDoDia) {
+                dot.classList.remove('current', 'past', 'future');
+                dot.classList.add('past'); // Cinza por padrão
+    
+                const horarios = Array.from(spanDoDia.querySelectorAll('.horario'));
+                let encontrouAmarelo = false;
+    
+                horarios.forEach(horario => {
+                    const [hora, minuto] = horario.textContent.trim().split(':').map(Number);
+                    const horarioTotal = hora * 60 + minuto;
+                    const atualTotal = horaAtual * 60 + minutosAtuais;
+    
+                    // Bolinha amarela apenas para o horário 1 minuto no futuro
+                    if (horarioTotal - atualTotal === 0 && !encontrouAmarelo) {
+                        dot.classList.remove('past');
+                        dot.classList.add('current'); // Amarelo para próximo horário
+                        encontrouAmarelo = true;
+                    }
+                });
+            }
+        });
+    }
+    
+    // Atualizar os horários e as bolinhas a cada minuto
+    setInterval(processarHorarios, 60000);
+    processarHorarios();
+        </script>
+    </body>
+    </html>                                                                                                     
+</body>
+</html>
