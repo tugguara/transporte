@@ -318,3 +318,21 @@ header h2.subtitle {
     color: #3498db; /* Azul para indicar a página atual */
     font-weight: bold;
 }
+
+.fare-info {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    margin-top: 15px;
+    color: #666;
+    border-top: 1px solid #eee;
+}
+
+.fare-info div {
+    margin-bottom: 3px;
+}
+
+.fare-info div:first-child {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
