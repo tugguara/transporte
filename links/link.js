@@ -101,19 +101,4 @@ export function populateMenu() {
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
-    
-    const fareNotice = document.createElement('div');
-    fareNotice.className = 'fare-notice';
-    fareNotice.style.textAlign = 'center';
-    fareNotice.style.padding = '15px';
-    fareNotice.style.marginTop = '20px';
-    fareNotice.style.fontWeight = 'bold';
-    fareNotice.style.lineHeight = '1.5'; // Add some spacing between lines
-    fareNotice.innerHTML = 
-        'Tarifa de Ônibus<br>' +
-        'Vale transporte: R$6,00<br>' +
-        'Passe comum: R$5,50<br>' +
-        'Pix/dinheiro: R$5,50<br>' +
-        'Passe escolar: R$2,75';
-    menuContent.appendChild(fareNotice);
 }
