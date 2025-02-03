@@ -112,14 +112,4 @@ export function populateMenu() {
         menuContent.appendChild(sectionDiv);
     });
 
-    const fareInfo = document.createElement('div');
-    fareInfo.className = 'fare-info';
-    fareInfo.innerHTML = 
-        '<div>Tarifa de Ônibus</div>' +
-        '<div>Vale transporte: R$6,00</div>' +
-        '<div>Passe comum: R$5,50</div>' +
-        '<div>Pix/dinheiro: R$5,50</div>' +
-        '<div>Passe escolar: R$2,75</div>';
-    menuContent.appendChild(fareInfo);
-
 }
