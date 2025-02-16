@@ -23,6 +23,12 @@ export const menuLinks = {
         titulo: "Ônibus Urbanos",
         links: [
             {
+                nome: "L22 Nova Guará",
+                url: "https://tugguara.github.io/transporte/l25%20zerbini/",
+                active: false,
+                warning: true // Adiciona flag para identificar que precisa de aviso
+            },
+            {
                 nome: "L25 Jardim do Vale",
                 url: "https://tugguara.github.io/transporte/l25%20zerbini/",
                 active: false
@@ -30,16 +36,6 @@ export const menuLinks = {
             {
                 nome: "L26 Adhemar de Barros",
                 url: "https://tugguara.github.io/transporte/l26%20adhemar/",
-                active: false
-            }
-        ]
-    },
-    Van: {
-        titulo: "Van",
-        links: [
-            {
-                nome: "ALT10 JD DO VALE",
-                url: "https://tugguara.github.io/transporte/alt10/",
                 active: false
             }
         ]
@@ -66,10 +62,10 @@ export const menuLinks = {
     }
 };
 
-// Função para marcar o link ativo
 export function populateMenu() {
     const menuContent = document.getElementById('menu-content');
-    const currentUrl = window.location.href; // Obtém a URL atual da página
+    const currentUrl = window.location.href;
+    
     menuContent.innerHTML = '';
     
     Object.values(menuLinks).forEach(section => {
@@ -80,36 +76,56 @@ export function populateMenu() {
         title.textContent = section.titulo;
         title.className = 'menu-title';
         sectionDiv.appendChild(title);
-
+        
         const list = document.createElement('ul');
         list.className = 'menu-list';
         
         section.links.forEach(link => {
             const li = document.createElement('li');
             li.className = 'menu-item';
+            li.style.display = 'flex';
+            li.style.alignItems = 'center';
             
             const a = document.createElement('a');
-            a.href = link.url;
             a.textContent = link.nome;
             a.className = 'menu-link';
-
-            // Marcar o link como ativo se a URL do link for igual à URL atual
-            if (currentUrl === link.url) {
-                a.classList.add('active');
-                // Ao clicar, alterar a URL para incluir o '#'
-                a.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    window.location.hash = ''; // Adiciona # na URL sem recarregar a página
+            
+            if (link.warning) {
+                // Para link com aviso
+                a.style.cursor = 'pointer';
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    alert('Não disponível');
+                };
+                
+                // Adiciona ícone de aviso
+                const warningSpan = document.createElement('span');
+                warningSpan.textContent = ' ⚠️'; // Emoji de aviso
+                warningSpan.style.marginLeft = '5px';
+                warningSpan.style.color = '#ffa500'; // Cor laranja
+                li.appendChild(a);
+                li.appendChild(warningSpan);
+            } else {
+                // Para links normais
+                a.href = link.url;
+                li.appendChild(a);
+                
+                if (currentUrl === link.url) {
                     a.classList.add('active');
-                });
+                    a.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        window.location.hash = '';
+                        a.classList.add('active');
+                    });
+                }
             }
-
-            li.appendChild(a);
+            
             list.appendChild(li);
         });
-
+        
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
-
 }
+
+document.addEventListener('DOMContentLoaded', populateMenu);
