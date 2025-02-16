@@ -1,13 +1,12 @@
-import { menuLinks } from './link.js';  // Agora você importa corretamente
+import { menuLinks } from './link.js';
 
 export function populateMenu() {
-    const menuContent = document.getElementById('menu-content'); 
+    const menuContent = document.getElementById('menu-content');
     console.log("carregando");
-
-    menuContent.innerHTML = '';  // Limpa o conteúdo atual do menu
     
-    // Obter a URL atual para saber em qual página estamos
-    const currentUrl = window.location.pathname;  // Use pathname para comparar apenas o caminho da URL
+    menuContent.innerHTML = '';
+    
+    const currentUrl = window.location.pathname;
 
     Object.values(menuLinks).forEach(section => {
         const sectionDiv = document.createElement('div');
@@ -21,40 +20,55 @@ export function populateMenu() {
         const list = document.createElement('ul');
         list.className = 'menu-list';
         
-        // Iterando pelos links da seção
         section.links.forEach(link => {
             const li = document.createElement('li');
             li.className = 'menu-item';
+            li.style.display = 'flex';
+            li.style.alignItems = 'center';
             
             const a = document.createElement('a');
-            a.href = link.url;  // Usando a URL do link
             a.textContent = link.nome;
             a.className = 'menu-link';
-            
-            // Verifica se o link atual corresponde à URL da página
-            const linkUrlPath = new URL(link.url).pathname; // Obtém o caminho da URL do link
-            if (currentUrl === linkUrlPath) {
-                a.classList.add('active');
-                link.active = true;
+
+            // Tratamento especial para o link com warning
+            if (link.warning) {
+                a.style.cursor = 'pointer';
+                a.onclick = (e) => {
+                    e.preventDefault();
+                    alert('Não disponível');
+                };
+                
+                const warningSpan = document.createElement('span');
+                warningSpan.textContent = ' ⚠️';
+                warningSpan.style.marginLeft = '5px';
+                warningSpan.style.color = '#ffa500';
+                li.appendChild(a);
+                li.appendChild(warningSpan);
             } else {
-                link.active = false;
-            }
-
-            // Impede o recarregamento se o link for o ativo
-            a.addEventListener('click', (event) => {
-                if (link.active) {
-                    event.preventDefault();  // Impede o comportamento padrão do link (recarregar a página)
-
-                    // Atualiza a URL para incluir o hash (#) sem recarregar a página
-                    history.pushState(null, null, `${link.url}#`);
+                a.href = link.url;
+                
+                const linkUrlPath = new URL(link.url).pathname;
+                if (currentUrl === linkUrlPath) {
+                    a.classList.add('active');
+                    link.active = true;
+                    
+                    a.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        history.pushState(null, null, `${link.url}#`);
+                    });
+                } else {
+                    link.active = false;
                 }
-            });
-
-            li.appendChild(a);
+                
+                li.appendChild(a);
+            }
+            
             list.appendChild(li);
         });
-
+        
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
 }
+
+document.addEventListener('DOMContentLoaded', populateMenu);

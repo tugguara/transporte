@@ -1,3 +1,18 @@
+// Adiciona os estilos
+const style = document.createElement('style');
+style.textContent = `
+    .menu-link.active {
+        color: #0066cc !important;
+        font-weight: bold;
+    }
+    
+    .menu-item {
+        position: relative;
+        padding: 5px 0;
+    }
+`;
+document.head.appendChild(style);
+
 export const menuLinks = {
     infos: {
         titulo: "Portal de Informações",
@@ -26,7 +41,7 @@ export const menuLinks = {
                 nome: "L22 Nova Guará",
                 url: "https://tugguara.github.io/transporte/l25%20zerbini/",
                 active: false,
-                warning: true // Adiciona flag para identificar que precisa de aviso
+                warning: true // Adiciona flag para mostrar aviso
             },
             {
                 nome: "L25 Jardim do Vale",
@@ -61,71 +76,3 @@ export const menuLinks = {
         ]
     }
 };
-
-export function populateMenu() {
-    const menuContent = document.getElementById('menu-content');
-    const currentUrl = window.location.href;
-    
-    menuContent.innerHTML = '';
-    
-    Object.values(menuLinks).forEach(section => {
-        const sectionDiv = document.createElement('div');
-        sectionDiv.className = 'menu-section';
-        
-        const title = document.createElement('h2');
-        title.textContent = section.titulo;
-        title.className = 'menu-title';
-        sectionDiv.appendChild(title);
-        
-        const list = document.createElement('ul');
-        list.className = 'menu-list';
-        
-        section.links.forEach(link => {
-            const li = document.createElement('li');
-            li.className = 'menu-item';
-            li.style.display = 'flex';
-            li.style.alignItems = 'center';
-            
-            const a = document.createElement('a');
-            a.textContent = link.nome;
-            a.className = 'menu-link';
-            
-            if (link.warning) {
-                // Para link com aviso
-                a.style.cursor = 'pointer';
-                a.onclick = (e) => {
-                    e.preventDefault();
-                    alert('Não disponível');
-                };
-                
-                // Adiciona ícone de aviso
-                const warningSpan = document.createElement('span');
-                warningSpan.textContent = ' ⚠️'; // Emoji de aviso
-                warningSpan.style.marginLeft = '5px';
-                warningSpan.style.color = '#ffa500'; // Cor laranja
-                li.appendChild(a);
-                li.appendChild(warningSpan);
-            } else {
-                // Para links normais
-                a.href = link.url;
-                li.appendChild(a);
-                
-                if (currentUrl === link.url) {
-                    a.classList.add('active');
-                    a.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        window.location.hash = '';
-                        a.classList.add('active');
-                    });
-                }
-            }
-            
-            list.appendChild(li);
-        });
-        
-        sectionDiv.appendChild(list);
-        menuContent.appendChild(sectionDiv);
-    });
-}
-
-document.addEventListener('DOMContentLoaded', populateMenu);
