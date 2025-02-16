@@ -1,12 +1,13 @@
-import { menuLinks } from './link.js';
+import { menuLinks } from './link.js';  // Agora você importa corretamente
 
 export function populateMenu() {
-    const menuContent = document.getElementById('menu-content');
+    const menuContent = document.getElementById('menu-content'); 
     console.log("carregando");
+
+    menuContent.innerHTML = '';  // Limpa o conteúdo atual do menu
     
-    menuContent.innerHTML = '';
-    
-    const currentUrl = window.location.pathname;
+    // Obter a URL atual para saber em qual página estamos
+    const currentUrl = window.location.pathname;  // Use pathname para comparar apenas o caminho da URL
 
     Object.values(menuLinks).forEach(section => {
         const sectionDiv = document.createElement('div');
@@ -20,60 +21,40 @@ export function populateMenu() {
         const list = document.createElement('ul');
         list.className = 'menu-list';
         
+        // Iterando pelos links da seção
         section.links.forEach(link => {
             const li = document.createElement('li');
             li.className = 'menu-item';
             
             const a = document.createElement('a');
+            a.href = link.url;  // Usando a URL do link
             a.textContent = link.nome;
             a.className = 'menu-link';
-
-            // Verifica se é o L22 Nova Guará
-            if (link.nome === "L22 Nova Guará") {
-                // Remove o href para evitar navegação
-                a.style.cursor = 'pointer';
-                // Adiciona o evento de clique
-                a.onclick = () => alert('Não disponível');
-                
-                // Cria o span de aviso
-                const warningIcon = document.createElement('span');
-                warningIcon.textContent = ' ⚠️';
-                warningIcon.style.marginLeft = '5px';
-                warningIcon.title = 'Linha não disponível';
-                
-                // Adiciona o link e o ícone ao li
-                li.appendChild(a);
-                li.appendChild(warningIcon);
-            } else {
-                // Para os outros links, mantém o comportamento normal
-                a.href = link.url;
-                
-                try {
-                    const linkUrlPath = new URL(link.url).pathname;
-                    if (currentUrl === linkUrlPath) {
-                        a.classList.add('active');
-                        link.active = true;
-                        
-                        a.addEventListener('click', (event) => {
-                            event.preventDefault();
-                            history.pushState(null, null, `${link.url}#`);
-                        });
-                    } else {
-                        link.active = false;
-                    }
-                } catch (e) {
-                    console.error('URL inválida:', link.url);
-                }
-                
-                li.appendChild(a);
-            }
             
+            // Verifica se o link atual corresponde à URL da página
+            const linkUrlPath = new URL(link.url).pathname; // Obtém o caminho da URL do link
+            if (currentUrl === linkUrlPath) {
+                a.classList.add('active');
+                link.active = true;
+            } else {
+                link.active = false;
+            }
+
+            // Impede o recarregamento se o link for o ativo
+            a.addEventListener('click', (event) => {
+                if (link.active) {
+                    event.preventDefault();  // Impede o comportamento padrão do link (recarregar a página)
+
+                    // Atualiza a URL para incluir o hash (#) sem recarregar a página
+                    history.pushState(null, null, `${link.url}#`);
+                }
+            });
+
+            li.appendChild(a);
             list.appendChild(li);
         });
-        
+
         sectionDiv.appendChild(list);
         menuContent.appendChild(sectionDiv);
     });
 }
-
-document.addEventListener('DOMContentLoaded', populateMenu);
