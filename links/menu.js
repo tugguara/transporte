@@ -23,41 +23,46 @@ export function populateMenu() {
         section.links.forEach(link => {
             const li = document.createElement('li');
             li.className = 'menu-item';
-            li.style.display = 'flex';
-            li.style.alignItems = 'center';
             
             const a = document.createElement('a');
             a.textContent = link.nome;
             a.className = 'menu-link';
 
-            // Tratamento especial para o link com warning
-            if (link.warning) {
+            // Verifica se é o L22 Nova Guará
+            if (link.nome === "L22 Nova Guará") {
+                // Remove o href para evitar navegação
                 a.style.cursor = 'pointer';
-                a.onclick = (e) => {
-                    e.preventDefault();
-                    alert('Não disponível');
-                };
+                // Adiciona o evento de clique
+                a.onclick = () => alert('Não disponível');
                 
-                const warningSpan = document.createElement('span');
-                warningSpan.textContent = ' ⚠️';
-                warningSpan.style.marginLeft = '5px';
-                warningSpan.style.color = '#ffa500';
+                // Cria o span de aviso
+                const warningIcon = document.createElement('span');
+                warningIcon.textContent = ' ⚠️';
+                warningIcon.style.marginLeft = '5px';
+                warningIcon.title = 'Linha não disponível';
+                
+                // Adiciona o link e o ícone ao li
                 li.appendChild(a);
-                li.appendChild(warningSpan);
+                li.appendChild(warningIcon);
             } else {
+                // Para os outros links, mantém o comportamento normal
                 a.href = link.url;
                 
-                const linkUrlPath = new URL(link.url).pathname;
-                if (currentUrl === linkUrlPath) {
-                    a.classList.add('active');
-                    link.active = true;
-                    
-                    a.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        history.pushState(null, null, `${link.url}#`);
-                    });
-                } else {
-                    link.active = false;
+                try {
+                    const linkUrlPath = new URL(link.url).pathname;
+                    if (currentUrl === linkUrlPath) {
+                        a.classList.add('active');
+                        link.active = true;
+                        
+                        a.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            history.pushState(null, null, `${link.url}#`);
+                        });
+                    } else {
+                        link.active = false;
+                    }
+                } catch (e) {
+                    console.error('URL inválida:', link.url);
                 }
                 
                 li.appendChild(a);

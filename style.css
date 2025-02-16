@@ -336,13 +336,3 @@ header h2.subtitle {
     margin-bottom: 5px;
     font-weight: bold;
 }
-
-.menu-link.active {
-    color: #0066cc !important;
-    font-weight: bold;
-}
-
-.menu-item {
-    position: relative;
-    padding: 5px 0;
-}
