@@ -23,8 +23,13 @@ export const menuLinks = {
         titulo: "Ônibus Urbanos",
         links: [
             {
+                nome: "L12 Norte x Sul",
+                url: "",
+                active: false
+            },
+            {
                 nome: "L22 Nova Guará",
-                url: "https://tugguara.github.io/transporte/l25%20zerbini/",
+                url: "",
                 active: false
             },
             {
